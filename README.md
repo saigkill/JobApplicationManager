@@ -46,6 +46,7 @@ Latex Curriculum Vitae is released under the GPL3 License, see the file `LICENSE
 ## REQUIREMENTS (hard dependencies)
 
 * TexLive
+* Syncfusion Essential Studio Community Edition (https://www.syncfusion.com/products/communitylicen  se). More in LICENSE.md.
 
 ## INSTALLATION
 

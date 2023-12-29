@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+	x:Class="JobApplicationManager.AppShell"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:views="clr-namespace:JobApplicationManager.Views"
+	xmlns:local="clr-namespace:JobApplicationManager">
+
+    <ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Main"
+		Icon="iconblank.png"
+		ContentTemplate="{DataTemplate views:MainPage}"
+		Route="MainPage" />
+    <ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Settings"
+		Icon="usersettings_02_wf.png"
+		ContentTemplate="{DataTemplate views:SettingsPage}"
+		Route="SettingsPage" />
+    <ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="ListDetail"
+		Icon="iconlistdetail.png"
+		ContentTemplate="{DataTemplate views:ListDetailPage}"
+		Route="ListDetailPage" />
+    <ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Localization"
+		Icon="iconlocalization.png"
+		ContentTemplate="{DataTemplate views:LocalizationPage}"
+		Route="LocalizationPage" />
+</Shell>

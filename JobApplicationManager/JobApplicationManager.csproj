@@ -1,0 +1,237 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0;net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+		<OutputType Condition="'$(TargetFramework)' != 'net8.0'">Exe</OutputType>
+		<RootNamespace>JobApplicationManager</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>JobApplicationManager</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.JobApplicationManager</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+	</PropertyGroup>
+
+	<!-- Note for MacCatalyst:
+		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+	<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="Resources\AppIcon\JobApplicationManager.scale-100.png" />
+		<None Remove="Resources\AppIcon\JobApplicationManager.scale-125.png" />
+		<None Remove="Resources\AppIcon\JobApplicationManager.scale-150.png" />
+		<None Remove="Resources\AppIcon\JobApplicationManager.scale-200.png" />
+		<None Remove="Resources\AppIcon\JobApplicationManager.scale-400.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Resources\AppIcon\JobApplicationManager.scale-100.png" />
+		<Content Include="Resources\AppIcon\JobApplicationManager.scale-125.png" />
+		<Content Include="Resources\AppIcon\JobApplicationManager.scale-150.png" />
+		<Content Include="Resources\AppIcon\JobApplicationManager.scale-200.png" />
+		<Content Include="Resources\AppIcon\JobApplicationManager.scale-400.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\LICENSE.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="JobApplicationManager.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>JobApplicationManager.tt</DependentUpon>
+		</Compile>
+		<Compile Update="Resources\Strings\AppResources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>AppResources.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Views\SettingsPage.xaml.cs">
+			<DependentUpon>SettingsPage.xaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\Strings\AppResources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="BitlyAPI" Version="4.0.1" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
+		<PackageReference Include="CommunityToolkit.MVVM" Version="8.2.2" />
+		<PackageReference Include="CsvHelper" Version="30.0.1" />
+		<PackageReference Include="MailKit" Version="4.3.0" />
+		<PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.3" />
+		<PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="MimeKit" Version="4.3.0" />
+		<PackageReference Include="NLog" Version="5.2.7" />
+		<PackageReference Include="PdfSharpCore" Version="1.3.62" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+		<PackageReference Include="Syncfusion.Licensing" Version="24.1.43" />
+		<PackageReference Include="Syncfusion.Maui.Buttons" Version="24.1.43" />
+		<PackageReference Include="Syncfusion.Maui.Picker" Version="24.1.43" />
+		<PackageReference Include="Syncfusion.Maui.TabView" Version="24.1.43" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="JobApplicationManager.tt">
+			<Generator>TextTemplatingFileGenerator</Generator>
+			<LastGenOutput>JobApplicationManager.cs</LastGenOutput>
+		</None>
+		<None Update="NLog.config">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="Resources\AppIcon\AppSymbol.scale-400.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Update="Resources\AppIcon\job-application-manager-high-resolution-logo.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Data\Entities\" />
+		<Folder Include="Data\Enums\" />
+		<Folder Include="Data\Structs\" />
+		<Folder Include="Exceptions\" />
+		<Folder Include="LaTEX\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
+
+	<PropertyGroup Label="MauiAppAccelerator">
+		<wizardVersion>v1.4.0</wizardVersion>
+		<projectType>MVVMToolkit</projectType>
+		<framework>Flyout</framework>
+		<Description>Helps finding jobs, writing and managing Job Applications</Description>
+		<Copyright>2023 Sascha Manns</Copyright>
+		<PackageProjectUrl>https://dev.azure.com/saigkill/JobApplicationManager</PackageProjectUrl>
+		<PackageIcon>AppSymbol.scale-400.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://dev.azure.com/saigkill/JobApplicationManager</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+		<DefaultLanguage>en-US</DefaultLanguage>
+		<PackageCertificateThumbprint>31EC46E73118A84EED515CD4517DCC3C04655847</PackageCertificateThumbprint>
+		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+		<UserSecretsId>2dfcc5ef-34d2-4f56-9581-c8793f4c911a</UserSecretsId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0|AnyCPU'">
+		<ApplicationId>com.SaschaManns.JobApplicationManager</ApplicationId>
+		<ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
+		<ApplicationId>com.SaschaManns.JobApplicationManager</ApplicationId>
+		<ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+		<ApplicationId>com.SaschaManns.JobApplicationManager</ApplicationId>
+		<ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-maccatalyst|AnyCPU'">
+		<ApplicationId>com.SaschaManns.JobApplicationManager</ApplicationId>
+		<ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows10.0.19041.0|AnyCPU'">
+		<ApplicationId>com.SaschaManns.JobApplicationManager</ApplicationId>
+		<ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0|AnyCPU'">
+		<ApplicationId>com.SaschaManns.JobApplicationManager</ApplicationId>
+		<ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
+		<ApplicationId>com.SaschaManns.JobApplicationManager</ApplicationId>
+		<ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
+		<ApplicationId>com.SaschaManns.JobApplicationManager</ApplicationId>
+		<ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-maccatalyst|AnyCPU'">
+		<ApplicationId>com.SaschaManns.JobApplicationManager</ApplicationId>
+		<ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows10.0.19041.0|AnyCPU'">
+		<ApplicationId>com.SaschaManns.JobApplicationManager</ApplicationId>
+		<ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+</Project>
