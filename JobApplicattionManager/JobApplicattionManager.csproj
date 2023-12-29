@@ -53,6 +53,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\AppIcon\JobApplicationManager.scale-100.png" />
+	  <None Remove="Resources\AppIcon\JobApplicationManager.scale-125.png" />
+	  <None Remove="Resources\AppIcon\JobApplicationManager.scale-150.png" />
+	  <None Remove="Resources\AppIcon\JobApplicationManager.scale-200.png" />
+	  <None Remove="Resources\AppIcon\JobApplicationManager.scale-400.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Resources\AppIcon\JobApplicationManager.scale-100.png" />
+	  <Content Include="Resources\AppIcon\JobApplicationManager.scale-125.png" />
+	  <Content Include="Resources\AppIcon\JobApplicationManager.scale-150.png" />
+	  <Content Include="Resources\AppIcon\JobApplicationManager.scale-200.png" />
+	  <Content Include="Resources\AppIcon\JobApplicationManager.scale-400.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Include="..\LICENSE.md">
 	    <Pack>True</Pack>
 	    <PackagePath>\</PackagePath>
@@ -113,6 +129,9 @@
 		<RepositoryUrl>https://dev.azure.com/saigkill/JobApplicationManager</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+		<DefaultLanguage>en-US</DefaultLanguage>
+		<PackageCertificateThumbprint>31EC46E73118A84EED515CD4517DCC3C04655847</PackageCertificateThumbprint>
+		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0|AnyCPU'">
