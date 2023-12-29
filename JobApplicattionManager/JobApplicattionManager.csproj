@@ -53,6 +53,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Include="..\LICENSE.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
 		<Compile Update="Resources\Strings\AppResources.Designer.cs">
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>
@@ -79,10 +90,79 @@
 		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Update="Resources\AppIcon\AppSymbol.scale-400.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Update="Resources\AppIcon\job-application-manager-high-resolution-logo.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
 	<PropertyGroup Label="MauiAppAccelerator">
 		<wizardVersion>v1.4.0</wizardVersion>
 		<projectType>MVVMToolkit</projectType>
 		<framework>Flyout</framework>
+		<Description>Helps finding jobs, writing and managing Job Applications</Description>
+		<Copyright>2023 Sascha Manns</Copyright>
+		<PackageProjectUrl>https://dev.azure.com/saigkill/JobApplicationManager</PackageProjectUrl>
+		<PackageIcon>AppSymbol.scale-400.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://dev.azure.com/saigkill/JobApplicationManager</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0|AnyCPU'">
+	  <ApplicationId>com.SaschaManns.JobApplicattionManager</ApplicationId>
+	  <ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
+	  <ApplicationId>com.SaschaManns.JobApplicattionManager</ApplicationId>
+	  <ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+	  <ApplicationId>com.SaschaManns.JobApplicattionManager</ApplicationId>
+	  <ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-maccatalyst|AnyCPU'">
+	  <ApplicationId>com.SaschaManns.JobApplicattionManager</ApplicationId>
+	  <ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationId>com.SaschaManns.JobApplicattionManager</ApplicationId>
+	  <ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0|AnyCPU'">
+	  <ApplicationId>com.SaschaManns.JobApplicattionManager</ApplicationId>
+	  <ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
+	  <ApplicationId>com.SaschaManns.JobApplicattionManager</ApplicationId>
+	  <ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
+	  <ApplicationId>com.SaschaManns.JobApplicattionManager</ApplicationId>
+	  <ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-maccatalyst|AnyCPU'">
+	  <ApplicationId>com.SaschaManns.JobApplicattionManager</ApplicationId>
+	  <ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationId>com.SaschaManns.JobApplicattionManager</ApplicationId>
+	  <ApplicationIdGuid>12244726-34E2-44F8-AEE9-DD7ED89B2569</ApplicationIdGuid>
 	</PropertyGroup>
 
 </Project>
