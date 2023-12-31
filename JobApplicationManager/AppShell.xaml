@@ -15,7 +15,7 @@
     <ShellContent
 		Shell.NavBarIsVisible="true"
 		Title="Settings"
-		Icon="usersettings_02_wf.png"
+		Icon="einstellungen.png"
 		ContentTemplate="{DataTemplate views:SettingsPage}"
 		Route="SettingsPage" />
     <ShellContent

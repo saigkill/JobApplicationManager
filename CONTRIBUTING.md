@@ -2,23 +2,23 @@
 
 ## HELPING OUT CODING
 
-* Help coding on: https://dev.azure.com/saigkill/JobApplicationManager/_boards/board/t/JobApplicationManager%20Team/Features
+* Help coding on: https://dev.azure.com/saigkill/JobApplicationManager/_workitems/recentlyupdated/
 
 ## IDEAS
 
-* Add ideas on: https://dev.azure.com/saigkill/JobApplicationManager/_boards/board/t/JobApplicationManager%20Team/Features
+* Add ideas on: https://dev.azure.com/saigkill/JobApplicationManager/_workitems/recentlyupdated/
 * I'm using Azure DevOps also to manage my open tasks. If you find a nice Task, and want to work with him, just post it there.
 
 ## COOL HACKS
 
-* Open a bugreport on https://dev.azure.com/saigkill/JobApplicationManager/_boards/board/t/JobApplicationManager%20Team/Features .
+* Open a bugreport on https://dev.azure.com/saigkill/JobApplicationManager/_workitems/recentlyupdated/
 * Please use the -u flag when generating the patch as it makes the patch more readable.
 * Write a good explanation of what the patch does.
 * It is better to use git format-patch command: git format-patch HEAD^
 
 ## TRANSLATING
 
-* Help to translate Latex Curriculum Vitae to your language. I'm proposing to use ResX Manager (https://marketplace.visualstudio.com/items?itemName=TomEnglert.ResXManager)
+* Help to translate JobApplicationManager to your language. I'm proposing to use ResX Manager (https://marketplace.visualstudio.com/items?itemName=TomEnglert.ResXManager)
 
 ## STRUCTURE
 
@@ -30,7 +30,7 @@ Contains the latest stable Release.
 
 #### `develop` BRANCH
 
-The master branch is the working directory
+The master branch is the working directory. All new features and bugfixes should be commited to this branch. This branch is merged into the master branch when a new release is made.
 
 #### PULL REQUESTS
 

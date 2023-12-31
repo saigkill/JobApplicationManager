@@ -170,7 +170,8 @@
 		<wizardVersion>v1.4.0</wizardVersion>
 		<projectType>MVVMToolkit</projectType>
 		<framework>Flyout</framework>
-		<Description>Helps finding jobs, writing and managing Job Applications</Description>
+		<Description>This Application helps finding a new job, write a complete set of job application docs and helps you to manage and track your applications. One of the main targets is to create beautiful applications by using the great LaTEX system. 
+By using the .NET MAUI technology currently it supports Windows and MacOS systems.</Description>
 		<Copyright>2023 Sascha Manns</Copyright>
 		<PackageProjectUrl>https://dev.azure.com/saigkill/JobApplicationManager</PackageProjectUrl>
 		<PackageIcon>AppSymbol.scale-400.png</PackageIcon>
@@ -182,6 +183,7 @@
 		<PackageCertificateThumbprint>31EC46E73118A84EED515CD4517DCC3C04655847</PackageCertificateThumbprint>
 		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
 		<UserSecretsId>2dfcc5ef-34d2-4f56-9581-c8793f4c911a</UserSecretsId>
+		<Title>This Application helps finding a new job, write a complete set of job application docs and helps you to manage and track your applications.</Title>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0|AnyCPU'">
