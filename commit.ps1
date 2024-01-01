@@ -7,8 +7,8 @@ $GHPAT = $env:GHPAT
 git config --global user.email "$AZUSER_EMAIL"
 git config --global user.name "$AZUSERNAME"
 
-git clone "https://$GHUSER:$GHPAT@github.com/$GHUSER/JobApplicationManager" "./JobApplicationManager"
-$GIT_CMD_REPOSITORY = "https://$AZUSERNAME:$AZUREPAT@dev.azure.com/$AZORG/JobApplicationManager/_git/JobApplicationManager"
+git clone "https://${GHUSER}:${GHPAT]@github.com/${GHUSER}/JobApplicationManager" "./JobApplicationManager"
+$GIT_CMD_REPOSITORY = "https://${AZUSERNAME}:${AZUREPAT}@dev.azure.com/${AZORG}/JobApplicationManager/_git/JobApplicationManager"
 git clone $GIT_CMD_REPOSITORY "./JobApplicationManager-az-develop"
 git clone $GIT_CMD_REPOSITORY "./JobApplicationManager-az-master"
 
