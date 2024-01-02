@@ -18,13 +18,12 @@ JobApplicationManager is released under the MIT License, see the file `LICENSE.m
 
 | What | Status |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|Code quality | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=saigkill_JobApplicationManager&metric=alert_status)](https://sonarcloud.io/dashboard?id=saigkill_JobApplicationManager)
+|Code quality | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=saigkill_JobApplicationManager2&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=saigkill_JobApplicationManager2) |
 |Continuous integration Dev | [![Build status](https://dev.azure.com/saigkill/JobApplicationManager/_apis/build/status/JobApplicationManager%20Win%20Dev)](https://dev.azure.com/saigkill/JobApplicationManager/_build/latest?definitionId=44) |
 |Continuous integration Prod | [![Build status](https://dev.azure.com/saigkill/JobApplicationManager/_apis/build/status/JobApplicationManager%20Win%20Prod)](https://dev.azure.com/saigkill/JobApplicationManager/_build/latest?definitionId=40) |
 |Open Issues Github | ![GitHub issues](https://img.shields.io/github/issues/saigkill/JobApplicationManager) |
 |Open Issues Azure | [![Board Status](https://dev.azure.com/saigkill/fdc6f070-5933-4644-857b-7e13ee42fada/fc89a74c-8881-4092-8f33-8f1750ef7db0/_apis/work/boardbadge/fc52696a-9a9e-461d-bee2-8e0b7d36ad7c)](https://dev.azure.com/saigkill/fdc6f070-5933-4644-857b-7e13ee42fada/_boards/board/t/fc89a74c-8881-4092-8f33-8f1750ef7db0/Stories/)|
 |Conventional commits | [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) |
-|License | ![GitHub](https://img.shields.io/github/license/saigkill/latex_curriculum_vitae-dotnet) |
 
 ## FEATURES
 
@@ -43,7 +42,7 @@ JobApplicationManager is released under the MIT License, see the file `LICENSE.m
 ## REQUIREMENTS (hard dependencies)
 
 * LaTEX Installation.
-* Syncfusion Essential Studio Community Edition (https://www.syncfusion.com/products/communitylicen  se). More in LICENSE.md.
+* Syncfusion Essential Studio Community Edition (https://www.syncfusion.com/products/communitylicense). More in LICENSE.md.
 
 ## INSTALLATION
 
