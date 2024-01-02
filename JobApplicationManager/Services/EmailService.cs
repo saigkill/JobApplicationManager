@@ -34,7 +34,7 @@ namespace JobApplicationManager.Services
     public class EmailService : IEmailService
     {
         /// <summary>
-        /// This is the main method for creating and sending emails. It doesn't returns anything.        
+        /// This is the main method for creating and sending emails.
         /// </summary>
         /// <param name="emailModel">Email Message</param>
         public int CreateMessage(EmailModel emailModel)

@@ -24,7 +24,7 @@ public class SampleDataService
         return result;
     }
 
-    private string GetRandom()
+    private static string GetRandom()
     {
         var randomGenerator = RandomNumberGenerator.Create(); // Compliant for security-sensitive use cases
         byte[] data = new byte[16];
