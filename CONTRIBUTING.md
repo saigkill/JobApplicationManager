@@ -22,6 +22,10 @@
 
 ## STRUCTURE
 
+The development happens on: https://dev.azure.com/saigkill/JobApplicationManager
+On Github we have a mirror of the repository: https://github.com/saigkill/JobApplicationManager
+You can use Github for Issues. For Pullrequests please use Azure DevOps.
+
 ### BRANCHES
 
 #### `master` BRANCH
