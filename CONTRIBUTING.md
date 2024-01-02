@@ -2,19 +2,29 @@
 
 ## HELPING OUT CODING
 
-* Help coding on: https://dev.azure.com/saigkill/JobApplicationManager/_workitems/recentlyupdated/
+* Help coding on: https://dev.azure.com/saigkill/JobApplicationManager
 
 ## IDEAS
 
 * Add ideas on: https://dev.azure.com/saigkill/JobApplicationManager/_workitems/recentlyupdated/
 * I'm using Azure DevOps also to manage my open tasks. If you find a nice Task, and want to work with him, just post it there.
 
-## COOL HACKS
+## COOL HACKS via Bugreport
 
 * Open a bugreport on https://dev.azure.com/saigkill/JobApplicationManager/_workitems/recentlyupdated/
 * Please use the -u flag when generating the patch as it makes the patch more readable.
 * Write a good explanation of what the patch does.
 * It is better to use git format-patch command: git format-patch HEAD^
+
+## COOL HACKS via Pullrequest (preferred)
+
+* Fork the repository on Azure DevOps
+* Create a new branch from the `develop` branch
+* Make your changes
+* Document your changes in the `CHANGELOG.md` file. Please use the same format as the other entries.
+* Commit your changes
+* Push your changes to your fork
+* Create a pull request from your fork to the `develop` branch (https://dev.azure.com/saigkill/_git/JobApplicationManager/pullrequestcreate)
 
 ## TRANSLATING
 
