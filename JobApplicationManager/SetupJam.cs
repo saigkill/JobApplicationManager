@@ -107,8 +107,7 @@ namespace JobApplicationManager
         /// </summary>
         public static void CheckTmpPath()
         {
-            string tmpDir = Path.GetTempPath();
-            string myTmpDir = Path.Combine(tmpDir, "JobApplicationManager");
+            string myTmpDir = Path.Combine(Path.GetTempPath(), "JobApplicationManager");
 
             try
             {
@@ -125,8 +124,7 @@ namespace JobApplicationManager
         /// </summary>
         public static void Cleanup()
         {
-            string tmpDir = Path.GetTempPath();
-            string myTmpDir = Path.Combine(tmpDir, "JobApplicationManager");
+            string myTmpDir = Path.Combine(Path.GetTempPath(), "JobApplicationManager");
             Directory.SetCurrentDirectory(myTmpDir);
 
             string[] delete = Directory.GetFiles(myTmpDir);
