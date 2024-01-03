@@ -1,12 +1,9 @@
-﻿using JobApplicationManager;
-
-namespace JobApplicationManager;
+﻿namespace JobApplicationManager;
 
 public partial class App : Application
 {
     public App()
     {
-        Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("YOUR LICENSE KEY");
         InitializeComponent();
 
         // Uncomment the following as a quick way to test loading resources for different languages

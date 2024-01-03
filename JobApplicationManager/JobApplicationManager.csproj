@@ -58,6 +58,7 @@
 		<None Remove="Resources\AppIcon\JobApplicationManager.scale-150.png" />
 		<None Remove="Resources\AppIcon\JobApplicationManager.scale-200.png" />
 		<None Remove="Resources\AppIcon\JobApplicationManager.scale-400.png" />
+		<None Remove="secrets.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -66,6 +67,10 @@
 		<Content Include="Resources\AppIcon\JobApplicationManager.scale-150.png" />
 		<Content Include="Resources\AppIcon\JobApplicationManager.scale-200.png" />
 		<Content Include="Resources\AppIcon\JobApplicationManager.scale-400.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="secrets.json" />
 	</ItemGroup>
 
 	<ItemGroup>

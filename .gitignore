@@ -376,3 +376,5 @@ Setup/JobApplicationManager-cache/*
 docs/*
 docssrc-old/*
 docssrc/*
+
+secrets.json
