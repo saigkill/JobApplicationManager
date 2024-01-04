@@ -14,9 +14,14 @@ public partial class SettingsViewModel : BaseViewModel
     public string EmailServer { get; set; } = Preferences.Get("EmailSmtpServer", "");
     public string EmailUser { get; set; } = Preferences.Get("EmailUser", "");
     public string EmailPass { get; set; } = Preferences.Get("EmailPassword", "");
-    public int EmailPort { get; set; } = int.Parse(Preferences.Get("EmailSmtpPort", "0"));
-    public string EmailServerOptions { get; set; } = Preferences.Get("EmailServerOption", "");
+    public string EmailPort { get; set; } = Preferences.Get("EmailSmtpPort", "");
+    private string EmailServerOptions { get; set; } = Preferences.Get("EmailServerOption", "");
     public string LatexPath { get; set; } = Preferences.Get("LatexPath", "");
+
+    public SettingsViewModel()
+    {
+        //(Preferences.Clear();
+    }
 
     public void SaveSettings()
     {

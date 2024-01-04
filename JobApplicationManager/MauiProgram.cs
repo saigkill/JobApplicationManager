@@ -4,6 +4,8 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
+using Syncfusion.Maui.Core.Hosting;
+
 namespace JobApplicationManager;
 
 [SuppressMessage("ReSharper", "MethodTooLong")]
@@ -22,6 +24,7 @@ public static class MauiProgram
         builder
             .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
+            .ConfigureSyncfusionCore()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("FontAwesome6FreeBrands.otf", "FontAwesomeBrands");

@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Pr
 		CHANGELOG.md = CHANGELOG.md
 		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
 		CONTRIBUTING.md = CONTRIBUTING.md
+		CREDITS.txt = CREDITS.txt
 		JobApplicationManager.sln.licenseheader = JobApplicationManager.sln.licenseheader
 		LICENSE.md = LICENSE.md
 		MAINTENANCE.md = MAINTENANCE.md

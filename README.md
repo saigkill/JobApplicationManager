@@ -43,6 +43,24 @@ JobApplicationManager is released under the MIT License, see the file `LICENSE.m
 
 * LaTEX Installation.
 * Syncfusion Essential Studio Community Edition (https://www.syncfusion.com/products/communitylicense). More in LICENSE.md.
+* You have to create a file called `secrets.json` in the `JobApplicationManager` folder. The file should look like this:
+
+```json
+{
+	"AppCenter": {
+		"WindowsDesktop": "Your Windows Key",
+		"MacOS": "Your MacOS Key"
+	},	
+	"AllowedHosts": "*",
+	"ApplicationInsights": {
+		"ConnectionString": "Your Application Insights ConnectionString"
+	},
+	"Syncfusion": {
+		"License": "Your Syncfusion License"
+	}
+}
+```
+If you use the bought version via Windows Store or Apple Store, you *don't* need any keys. The app will automatically delivered with the keys.
 
 ## INSTALLATION
 
