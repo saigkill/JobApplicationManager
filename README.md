@@ -37,11 +37,12 @@ JobApplicationManager is released under the MIT License, see the file `LICENSE.m
 
 ## REQUIREMENTS
 
-* Windows 10/11
+* Windows 10 (Minimum 19041)/ Windows 11
+* MacOS 10.15 (Catalina) or higher
 
 ## REQUIREMENTS (hard dependencies)
 
-* LaTEX Installation.
+* LaTEX Installation. More on https://www.latex-project.org/get/
 * Syncfusion Essential Studio Community Edition (https://www.syncfusion.com/products/communitylicense). More in LICENSE.md.
 * You have to create a file called `secrets.json` in the `JobApplicationManager` folder. The file should look like this:
 
@@ -62,6 +63,6 @@ JobApplicationManager is released under the MIT License, see the file `LICENSE.m
 ```
 If you use the bought version via Windows Store or Apple Store, you *don't* need any keys. The app will automatically delivered with the keys.
 
-## INSTALLATION
+# INSTALLATION
 
 To be done.
