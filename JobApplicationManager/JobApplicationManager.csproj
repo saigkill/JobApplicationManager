@@ -36,7 +36,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
@@ -53,6 +53,31 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Remove="Resources\AppIcon\%24placeholder%24.scale-100.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.scale-125.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.scale-150.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.scale-200.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.scale-400.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.targetsize-16.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.targetsize-16_altform-lightunplated.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.targetsize-16_altform-unplated.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.targetsize-24.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.targetsize-24_altform-lightunplated.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.targetsize-24_altform-unplated.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.targetsize-256.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.targetsize-256_altform-lightunplated.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.targetsize-256_altform-unplated.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.targetsize-32.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.targetsize-32_altform-lightunplated.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.targetsize-32_altform-unplated.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.targetsize-48.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.targetsize-48_altform-lightunplated.png" />
+		<None Remove="Resources\AppIcon\%24placeholder%24.targetsize-48_altform-unplated.png" />
+		<None Remove="Resources\AppIcon\BadgeLogo.scale-100.png" />
+		<None Remove="Resources\AppIcon\BadgeLogo.scale-125.png" />
+		<None Remove="Resources\AppIcon\BadgeLogo.scale-150.png" />
+		<None Remove="Resources\AppIcon\BadgeLogo.scale-200.png" />
+		<None Remove="Resources\AppIcon\BadgeLogo.scale-400.png" />
 		<None Remove="Resources\AppIcon\JobApplicationManager.scale-100.png" />
 		<None Remove="Resources\AppIcon\JobApplicationManager.scale-125.png" />
 		<None Remove="Resources\AppIcon\JobApplicationManager.scale-150.png" />
@@ -62,6 +87,31 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Content Include="Resources\AppIcon\$placeholder$.scale-100.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.scale-125.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.scale-150.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.scale-200.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.scale-400.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.targetsize-16.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.targetsize-16_altform-lightunplated.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.targetsize-16_altform-unplated.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.targetsize-24.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.targetsize-24_altform-lightunplated.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.targetsize-24_altform-unplated.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.targetsize-256.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.targetsize-256_altform-lightunplated.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.targetsize-256_altform-unplated.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.targetsize-32.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.targetsize-32_altform-lightunplated.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.targetsize-32_altform-unplated.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.targetsize-48.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.targetsize-48_altform-lightunplated.png" />
+		<Content Include="Resources\AppIcon\$placeholder$.targetsize-48_altform-unplated.png" />
+		<Content Include="Resources\AppIcon\BadgeLogo.scale-100.png" />
+		<Content Include="Resources\AppIcon\BadgeLogo.scale-125.png" />
+		<Content Include="Resources\AppIcon\BadgeLogo.scale-150.png" />
+		<Content Include="Resources\AppIcon\BadgeLogo.scale-200.png" />
+		<Content Include="Resources\AppIcon\BadgeLogo.scale-400.png" />
 		<Content Include="Resources\AppIcon\JobApplicationManager.scale-100.png" />
 		<Content Include="Resources\AppIcon\JobApplicationManager.scale-125.png" />
 		<Content Include="Resources\AppIcon\JobApplicationManager.scale-150.png" />
@@ -70,7 +120,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Include="secrets.json" />
+		<EmbeddedResource Include="secrets.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -147,7 +197,7 @@
 			<LastGenOutput>JobApplicationManager.cs</LastGenOutput>
 		</None>
 		<None Update="NLog.config">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 		<None Update="Resources\AppIcon\AppSymbol.scale-400.png">
 			<Pack>True</Pack>
@@ -175,8 +225,10 @@
 		<wizardVersion>v1.4.0</wizardVersion>
 		<projectType>MVVMToolkit</projectType>
 		<framework>Flyout</framework>
-		<Description>This Application helps finding a new job, write a complete set of job application docs and helps you to manage and track your applications. One of the main targets is to create beautiful applications by using the great LaTEX system. 
-By using the .NET MAUI technology currently it supports Windows and MacOS systems.</Description>
+		<Description>
+			This Application helps finding a new job, write a complete set of job application docs and helps you to manage and track your applications. One of the main targets is to create beautiful applications by using the great LaTEX system.
+			By using the .NET MAUI technology currently it supports Windows and MacOS systems.
+		</Description>
 		<Copyright>2023 Sascha Manns</Copyright>
 		<PackageProjectUrl>https://dev.azure.com/saigkill/JobApplicationManager</PackageProjectUrl>
 		<PackageIcon>AppSymbol.scale-400.png</PackageIcon>

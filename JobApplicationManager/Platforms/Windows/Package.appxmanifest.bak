@@ -10,7 +10,7 @@
 	<Properties>
 		<DisplayName>JobApplicationManager</DisplayName>
 		<PublisherDisplayName>Sascha Manns</PublisherDisplayName>
-		<Logo>Resources\AppIcon\JobApplicationManager.png</Logo>
+		<Logo>$placeholder$.png</Logo>
 	</Properties>
 
 	<Dependencies>
@@ -27,11 +27,11 @@
 			<uap:VisualElements
 			DisplayName="JobApplicationManager"
 			Description="Helps finding jobs, writing and managing Job Applications."
-			Square150x150Logo="Resources\AppIcon\$placeholder$.png"
-			Square44x44Logo="Resources\AppIcon\$placeholder$.png"
+			Square150x150Logo="$placeholder$.png"
+			Square44x44Logo="$placeholder$.png"
 			BackgroundColor="transparent">
-				<uap:DefaultTile Square71x71Logo="Resources\AppIcon\JobApplicationManager.png" Wide310x150Logo="Resources\AppIcon\$placeholder$.png" Square310x310Logo="Resources\AppIcon\$placeholder$.png" />
-				<uap:SplashScreen Image="Resources\AppIcon\$placeholder$.png" />
+				<uap:DefaultTile Square71x71Logo="Resources\AppIcon\JobApplicationManager.png" Wide310x150Logo="$placeholder$.png" Square310x310Logo="$placeholder$.png" />
+				<uap:SplashScreen Image="$placeholder$.png" />
 				<uap:LockScreen BadgeLogo="Resources\AppIcon\BadgeLogo.png" Notification="badge"/>
 			</uap:VisualElements>
 		</Application>
