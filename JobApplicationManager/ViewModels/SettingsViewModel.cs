@@ -1,6 +1,8 @@
-﻿namespace JobApplicationManager.ViewModels;
+﻿using MailKit.Security;
 
-public partial class SettingsViewModel : BaseViewModel
+namespace JobApplicationManager.ViewModels;
+
+public partial class SettingsViewModel(IFolderPicker folderPicker) : BaseViewModel
 {
     public string UserFirstname { get; set; } = Preferences.Get("UserFirstName", "");
     public string UserSurname { get; set; } = Preferences.Get("UserSurname", "");
@@ -16,12 +18,17 @@ public partial class SettingsViewModel : BaseViewModel
     public string EmailPass { get; set; } = Preferences.Get("EmailPassword", "");
     public string EmailPort { get; set; } = Preferences.Get("EmailSmtpPort", "");
     private string EmailServerOptions { get; set; } = Preferences.Get("EmailServerOption", "");
-    public string LatexPath { get; set; } = Preferences.Get("LatexPath", "");
+    public string? LatexPath { get; set; } = Preferences.Get("LatexPath", "");
 
-    public SettingsViewModel()
-    {
-        //(Preferences.Clear();
-    }
+    public ObservableCollection<EmailOptions> EmailOptions { get; set; } =
+    [
+        new EmailOptions(emailOption: "None", option: SecureSocketOptions.None, id: 0),
+        new EmailOptions(emailOption: "Auto", option: SecureSocketOptions.Auto, id: 1),
+        new EmailOptions(emailOption: "SSL on Connect", option: SecureSocketOptions.SslOnConnect, id: 2),
+        new EmailOptions(emailOption: "Start TLS", option: SecureSocketOptions.StartTls, id: 3),
+        new EmailOptions(emailOption: "Start TLS When Available", option: SecureSocketOptions.StartTlsWhenAvailable,
+            id: 4),
+    ];
 
     public void SaveSettings()
     {
@@ -42,30 +49,9 @@ public partial class SettingsViewModel : BaseViewModel
         Preferences.Set("EmailServerOption", EmailServerOptions);
     }
 
-    public void picker_SelectionChanged()
+    public void GetLatexPath()
     {
-        EmailServerOptions = DataSource.ToString();
-    }
-
-    public void picker_OkButtonClicked()
-    {
-        Preferences.Set("EmailServerOption", EmailServerOptions);
-    }
-
-    private ObservableCollection<object> dataSource = new ObservableCollection<object>()
-    {
-        "StartTls", "Auto", "None", "SslOnConnect", "StartTlsWhenAvailable"
-    };
-
-    public ObservableCollection<object> DataSource
-    {
-        get
-        {
-            return dataSource;
-        }
-        set
-        {
-            dataSource = value;
-        }
+        // Using native implementation
+        LatexPath = folderPicker.PickFolder().ToString();
     }
 }

@@ -2,7 +2,7 @@
 extensions: .cs .cpp .h
 #region copyright
 // <copyright file="%FileName%" company="Sascha Manns">
-// Copyright (C) 2023 Sascha Manns, Sascha.Manns@outlook.de
+// Copyright (C) %CurrentYear% Sascha Manns, Sascha.Manns@outlook.de
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation 
 // files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, 
@@ -17,13 +17,13 @@ extensions: .cs .cpp .h
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 // @author: Sascha Manns, Sascha.Manns@outlook.de
-// @copyright: 2023, Sascha Manns, https://dev.azure.com/saigkill/JobApplicationManager
+// @copyright: %CurrentYear%, Sascha Manns, https://dev.azure.com/saigkill/JobApplicationManager
 // </copyright>
 #endregion
 extensions: .cshtml
 @*
 <copyright file="%FileName%" company="Sascha Manns">
-Copyright (C) 2023 Sascha Manns, Sascha.Manns@outlook.de
+Copyright (C) %CurrentYear% Sascha Manns, Sascha.Manns@outlook.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation 
 files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, 
@@ -38,14 +38,14 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTIO
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 @author: Sascha Manns, Sascha.Manns@outlook.de
-@copyright: 2023, Sascha Manns, https://dev.azure.com/saigkill/JobApplicationManager
+@copyright: %CurrentYear%, Sascha Manns, https://dev.azure.com/saigkill/JobApplicationManager
 </copyright>
 extensions: .vb
 'Sample license text.
 extensions:  .xml .config .xsd .xaml
 <!--
 <copyright file="%FileName%" company="Sascha Manns">
-Copyright (C) 2023 Sascha Manns, Sascha.Manns@outlook.de
+Copyright (C) %CurrentYear% Sascha Manns, Sascha.Manns@outlook.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation 
 files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, 
@@ -60,6 +60,6 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTIO
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 @author: Sascha Manns, Sascha.Manns@outlook.de
-@copyright: 2023, Sascha Manns, https://dev.azure.com/saigkill/JobApplicationManager
+@copyright: %CurrentYear%, Sascha Manns, https://dev.azure.com/saigkill/JobApplicationManager
 </copyright>
 -->

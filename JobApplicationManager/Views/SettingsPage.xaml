@@ -15,21 +15,21 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
-            <Image HorizontalOptions="Center" Height="40" Margin="698,0,0,0" VerticalOptions="Center" Width="100" Source="userinfos.png"></Image>
-            <Label Text="{mex:LocString SettingsUserHeader}" HorizontalOptions="Start" Margin="10,0,0,0" VerticalOptions="Center" Width="377" FontAttributes="Bold"/>
-        </Grid>
-
-
-        <Border Grid.Row="1" Margin="10" Width="1"  BackgroundColor="#FF619640">
-            <Grid Grid.Row="1" x:Name="grdPersonalSettings" Background="#FFDAEBD0">
+        <Border Grid.Row="0" 
+                Stroke="#C49B33"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 40,0,0,40"
+                Background="#FFDAEBD0"
+                Padding="16,8"
+                Margin="10"
+                HorizontalOptions="Center">
+            <Grid Grid.Row="0" x:Name="GrdPersonalSettings" Background="#FFDAEBD0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
@@ -40,8 +40,9 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <StackLayout Margin="5,5,10,31" Height="30" Grid.ColumnSpan="5" Grid.RowSpan="2">
+                <StackLayout Grid.Row="0" Height="30" Grid.ColumnSpan="6">
                     <Label Text="{mex:LocString SettingsUserHeader}" FontAttributes="Bold" HorizontalOptions="Center"
                        Height="29"/>
                 </StackLayout>
@@ -52,7 +53,7 @@
                                 HelperText="{mex:LocString SettingsUserFirstnameHelper}"
                                 Hint="{mex:LocString SettingsUserFirstname}"
                                 Grid.Column="0"
-                                Grid.Row="0"
+                                Grid.Row="1"
                                 LeadingViewPosition="Inside">
                     <Entry x:Name="TxtUserFirstnameEntry" Text="{Binding UserFirstname}"/>
                     <core:SfTextInputLayout.LeadingView>
@@ -68,7 +69,7 @@
                                 HelperText="{mex:LocString SettingsUserSurnameHelper}"
                                 Hint="{mex:LocString SettingsUserSurname}"
                                 Grid.Column="0"
-                                Grid.Row="1"
+                                Grid.Row="2"
                                 LeadingViewPosition="Inside">
                     <Entry x:Name="TxtUserSurnameEntry" Text="{Binding UserSurname}"/>
                     <core:SfTextInputLayout.LeadingView>
@@ -84,7 +85,7 @@
                                 HelperText="{mex:LocString SettingsUserStreetHelper}"
                                 Hint="{mex:LocString SettingsUserStreet}"
                                 Grid.Column="0"
-                                Grid.Row="2"
+                                Grid.Row="3"
                                 LeadingViewPosition="Inside">
                     <Entry x:Name="TxtUserStreetEntry" Text="{Binding UserStreet}" />
                     <core:SfTextInputLayout.LeadingView>
@@ -100,7 +101,7 @@
                                 HelperText="{mex:LocString SettingsUserCityHelper}"
                                 Hint="{mex:LocString SettingsUserCity}"
                                 Grid.Column="0"
-                                Grid.Row="3"
+                                Grid.Row="4"
                                 LeadingViewPosition="Inside">
                     <Entry x:Name="TxtUserCityEntry" Text="{Binding UserCity}"/>
                     <core:SfTextInputLayout.LeadingView>
@@ -116,7 +117,7 @@
                                 HelperText="{mex:LocString SettingsUserZipHelper}"
                                 Hint="{mex:LocString SettingsUserZip}"
                                 Grid.Column="0"
-                                Grid.Row="4"
+                                Grid.Row="5"
                                 LeadingViewPosition="Inside">
                     <Entry x:Name="TxtUserZipEntry" Text="{Binding UserZip}" />
                     <core:SfTextInputLayout.LeadingView>
@@ -133,7 +134,7 @@
                                 HelperText="{mex:LocString SettingsUserPhoneHelper}"
                                 Hint="{mex:LocString SettingsUserPhone}"
                                 Grid.Column="1"
-                                Grid.Row="0"
+                                Grid.Row="1"
                                 LeadingViewPosition="Inside">
                     <Entry x:Name="TxtUserPhoneEntry" Text="{Binding UserPhone}"/>
                     <core:SfTextInputLayout.LeadingView>
@@ -149,7 +150,7 @@
                                 HelperText="{mex:LocString SettingsUserEmailHelper}"
                                 Hint="{mex:LocString SettingsUserEmail}"
                                 Grid.Column="1"
-                                Grid.Row="1"
+                                Grid.Row="2"
                                 ErrorText="Invalid email"
                                 HasError="true"
                                 LeadingViewPosition="Inside">
@@ -167,7 +168,7 @@
                                 HelperText="{mex:LocString SettingsUserHomepageHelper}"
                                 Hint="{mex:LocString SettingsUserHomepage}"
                                 Grid.Column="1"
-                                Grid.Row="2"
+                                Grid.Row="3"
                                 LeadingViewPosition="Inside">
                     <Entry x:Name="TxtUserHomepageEntry" Text="{Binding UserHomepage}" />
                     <core:SfTextInputLayout.LeadingView>
@@ -180,8 +181,14 @@
             </Grid>
         </Border>
 
-        <Border Grid.Row="2" Margin="10" Width="1" BackgroundColor="#FF619640">
-            <Grid Grid.Row="2" x:Name="grdSmtpSettings" Margin="2" Background="#FFDAEBD0">
+        <Border Grid.Row="1" Stroke="#C49B33"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 40,0,0,40"
+                Background="#FFDAEBD0"
+                Padding="16,8"
+                Margin="10">
+
+            <Grid Grid.Row="1" x:Name="GrdExternalSettings" Margin="20" Background="#FFDAEBD0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
@@ -192,19 +199,21 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <StackLayout Margin="-5,3,10,31" Height="30" Grid.ColumnSpan="5" Grid.RowSpan="2">
+                <StackLayout Grid.Row="0" Height="30" Grid.ColumnSpan="6">
                     <Label Text="{mex:LocString SettingsExternalHeader}" FontAttributes="Bold" HorizontalOptions="Center"
                        Height="29"/>
                 </StackLayout>
                 <core:SfTextInputLayout
                     x:Name="TxtUserBitlyToken"
                     ContainerType="Outlined"
-                    HelperText="{mex:LocString SettingsExternalBitlyTokenHelper}"
-                    Hint="{mex:LocString SettingsExternalBitlyToken}"
+                    HelperText="{mex:LocString SettingsExternalBitLyTokenHelper}"
+                    Hint="{mex:LocString SettingsExternalBitLyToken}"
                     Grid.Column="0"
-                    Grid.Row="0"
-                    LeadingViewPosition="Inside">
+                    Grid.Row="1"
+                    LeadingViewPosition="Inside"
+                    Height="20">
                     <Entry x:Name="TxtUserBitlyTokenEntry" Text="{Binding ExternalBitLyToken}"/>
                     <core:SfTextInputLayout.LeadingView>
                         <Label
@@ -213,28 +222,40 @@
                         </Label>
                     </core:SfTextInputLayout.LeadingView>
                 </core:SfTextInputLayout>
-                <core:SfTextInputLayout
+                <Grid Grid.Column="0" Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <core:SfTextInputLayout
                     x:Name="TxtLatexPath"
                     ContainerType="Outlined"
                     HelperText="{mex:LocString SettingsExternalLatexPathHelper}"
                     Hint="{mex:LocString SettingsExternalLatexPath}"
                     Grid.Column="0"
-                    Grid.Row="1"
-                    LeadingViewPosition="Inside">
-                    <Entry x:Name="TxtUserLatexPathEntry" Text="{Binding LatexPath}"/>
-                    <core:SfTextInputLayout.LeadingView>
-                        <Label
+                    LeadingViewPosition="Inside"
+                    Height="20">
+                        <Entry x:Name="TxtUserLatexPathEntry" Text="{Binding LatexPath}"/>
+                        <core:SfTextInputLayout.LeadingView>
+                            <Label
                             Style="{x:StaticResource FontAwesomeSolidStyle}"
                             Text="{x:Static models:FontAwesomeSolid.Keyboard}">
-                        </Label>
-                    </core:SfTextInputLayout.LeadingView>
-
-                </core:SfTextInputLayout>
+                            </Label>
+                        </core:SfTextInputLayout.LeadingView>
+                    </core:SfTextInputLayout>
+                    <buttons:SfButton Grid.Column="1" Text="{mex:LocString SettingsExternalLatexPathButton}" Clicked="ButtonLatexPath_Clicked" />
+                </Grid>
             </Grid>
         </Border>
 
-        <Border Grid.Row="2" Margin="10" Width="1" BackgroundColor="#FF619640">
-            <Grid Grid.Row="3" Margin="10" Width="1" BackgroundColor="#FF619640">
+        <Border Grid.Row="2"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 40,0,0,40"
+                Background="#FFDAEBD0"
+                Padding="16,8"
+                Margin="10"
+                HorizontalOptions="Center">
+            <Grid Grid.Row="2" x:Name="GrdSmtpSettings" Margin="20" Width="1" BackgroundColor="#FFDAEBD0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
@@ -246,13 +267,17 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0" Height="30" Grid.ColumnSpan="6">
+                    <Label Text="{mex:LocString SettingsEmailHeader}" FontAttributes="Bold" HorizontalOptions="Center"
+                           Height="29"/>
+                </StackLayout>
                 <core:SfTextInputLayout
                             x:Name="TxtEmailUser"
                             ContainerType="Outlined"
                             HelperText="{mex:LocString SettingsEmailUserHelper}"
                             Hint="{mex:LocString SettingsEmailUser}"
                             Grid.Column="0"
-                            Grid.Row="0"
+                            Grid.Row="1"
                             LeadingViewPosition="Inside">
                     <Entry x:Name="TxtEmailUserEntry" Text="{Binding EmailUser}"/>
                     <core:SfTextInputLayout.LeadingView>
@@ -268,7 +293,7 @@
                             HelperText="{mex:LocString SettingsEmailPassHelper}"
                             Hint="{mex:LocString SettingsEmailPass}"
                             Grid.Column="0"
-                            Grid.Row="1"
+                            Grid.Row="2"
                             LeadingViewPosition="Inside">
                     <Entry x:Name="TxtEmailPasswordEntry" Text="{Binding EmailPass}"/>
                     <core:SfTextInputLayout.LeadingView>
@@ -284,7 +309,7 @@
                             HelperText="{mex:LocString SettingsEmailSmtpServerHelper}"
                             Hint="{mex:LocString SettingsEmailSmtpServer}"
                             Grid.Column="0"
-                            Grid.Row="2"
+                            Grid.Row="3"
                             LeadingViewPosition="Inside">
                     <Entry x:Name="TxtEmailSmtpServerEntry" Text="{Binding EmailServer}"/>
                     <core:SfTextInputLayout.LeadingView>
@@ -300,7 +325,7 @@
                             HelperText="{mex:LocString SettingsEmailSmtpPortHelper}"
                             Hint="{mex:LocString SettingsEmailSmtpPort}"
                             Grid.Column="1"
-                            Grid.Row="0"
+                            Grid.Row="1"
                             LeadingViewPosition="Inside">
                     <Entry x:Name="TxtEmailSmtpPortEntry" Text="{Binding EmailPort}"/>
                     <core:SfTextInputLayout.LeadingView>
@@ -310,20 +335,24 @@
                         </Label>
                     </core:SfTextInputLayout.LeadingView>
                 </core:SfTextInputLayout>
-                <picker:SfPicker x:Name="Picker"
-                                         SelectionChanged="picker_SelectionChanged"
-                                         OkButtonClicked="picker_OkButtonClicked"
-                                         Grid.Column="1"
-                                         Grid.Row="1">
-                    <picker:SfPicker.HeaderView>
-                        <picker:PickerHeaderView Text="{mex:LocString SettingsEmailOptionsPicker}" Height="40" />
-                    </picker:SfPicker.HeaderView>
-                    <picker:SfPicker.Columns>
-                        <picker:PickerColumn ItemsSource="{Binding DataSource}" />
-                    </picker:SfPicker.Columns>
-                </picker:SfPicker>
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Text="{mex:LocString SettingsEmailOptions}" Margin="20,0,0,0"/>
+                    <core:SfComboBox Grid.Row="0" Grid.Column="1" x:Name="EmailOptionsComboBox" 
+                                     WidthRequest="500"
+                                     DisplayMemberPath = "EmailOption"
+                                     TextMemberPath = "EmailOption"
+                                     VerticalOptions="Start"
+                                     ItemsSource="{Binding EmailOptions}" />
+                </Grid>
             </Grid>
         </Border>
-        <Grid Grid.Row="4" Margin="0,8,0,8"></Grid>
+
+        <Grid Grid.Row="3" Margin="10">
+            <buttons:SfButton Text="{mex:LocString ButtonSave}" HorizontalOptions="Center" Clicked="ButtonSave_Clicked" />
+        </Grid>
     </Grid>
 </ContentPage>

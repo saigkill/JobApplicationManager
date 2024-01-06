@@ -124,7 +124,7 @@
   <data name="SettingsExternalBitLyToken" xml:space="preserve">
     <value>Bit.ly Token</value>
   </data>
-  <data name="SetingsEmailSmtpServer" xml:space="preserve">
+  <data name="SettingsEmailSmtpServer" xml:space="preserve">
     <value>SMTP Server URL</value>
   </data>
   <data name="SettingsEmailUser" xml:space="preserve">
@@ -176,10 +176,10 @@
     <value>Enter your email address</value>
   </data>
   <data name="SettingsUserHomepageHelper" xml:space="preserve">
-    <value>Enter your homepage address</value>
+    <value>Enter your homepage address [Optional]</value>
   </data>
   <data name="SettingsExternalBitLyTokenHelper" xml:space="preserve">
-    <value>Enter your Bit.Ly Token</value>
+    <value>Enter your Bit.Ly Token [Optional]</value>
   </data>
   <data name="SettingsEmailUserHelper" xml:space="preserve">
     <value>Enter your SMTP Username</value>
@@ -249,5 +249,11 @@ Sincerely
   </data>
   <data name="SettingsEmailOptionsPicker" xml:space="preserve">
     <value>Select a Email Option</value>
+  </data>
+  <data name="SettingsEmailOptions" xml:space="preserve">
+    <value>Email options:</value>
+  </data>
+  <data name="SettingsExternalLatexPathButton" xml:space="preserve">
+    <value>Choose Path</value>
   </data>
 </root>

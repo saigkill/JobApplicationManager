@@ -205,20 +205,20 @@ namespace JobApplicationManager.Resources.Strings {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SMTP Server URL ähnelt.
-        /// </summary>
-        internal static string SetingsEmailSmtpServer {
-            get {
-                return ResourceManager.GetString("SetingsEmailSmtpServer", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Email Settings ähnelt.
         /// </summary>
         internal static string SettingsEmailHeader {
             get {
                 return ResourceManager.GetString("SettingsEmailHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Email options: ähnelt.
+        /// </summary>
+        internal static string SettingsEmailOptions {
+            get {
+                return ResourceManager.GetString("SettingsEmailOptions", resourceCulture);
             }
         }
         
@@ -268,6 +268,15 @@ namespace JobApplicationManager.Resources.Strings {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SMTP Server URL ähnelt.
+        /// </summary>
+        internal static string SettingsEmailSmtpServer {
+            get {
+                return ResourceManager.GetString("SettingsEmailSmtpServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Enter your SMTP Server ähnelt.
         /// </summary>
         internal static string SettingsEmailSmtpServerHelper {
@@ -304,7 +313,7 @@ namespace JobApplicationManager.Resources.Strings {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Enter your Bit.Ly Token ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Enter your Bit.Ly Token [Optional] ähnelt.
         /// </summary>
         internal static string SettingsExternalBitLyTokenHelper {
             get {
@@ -327,6 +336,15 @@ namespace JobApplicationManager.Resources.Strings {
         internal static string SettingsExternalLatexPath {
             get {
                 return ResourceManager.GetString("SettingsExternalLatexPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Choose Path ähnelt.
+        /// </summary>
+        internal static string SettingsExternalLatexPathButton {
+            get {
+                return ResourceManager.GetString("SettingsExternalLatexPathButton", resourceCulture);
             }
         }
         
@@ -421,7 +439,7 @@ namespace JobApplicationManager.Resources.Strings {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Enter your homepage address ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Enter your homepage address [Optional] ähnelt.
         /// </summary>
         internal static string SettingsUserHomepageHelper {
             get {

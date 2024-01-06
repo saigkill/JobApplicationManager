@@ -1,18 +1,14 @@
-﻿using Syncfusion.Maui.Picker;
-
-#pragma warning disable CS8601 // Possible null reference assignment.
+﻿#pragma warning disable CS8601 // Possible null reference assignment.
 namespace JobApplicationManager.Views;
 
 public partial class SettingsPage : ContentPage
 {
     private readonly SettingsViewModel _viewModel;
-    private readonly Services.IFolderPicker _folderPicker;
 
-    public SettingsPage(SettingsViewModel viewModel, Services.IFolderPicker folderPicker)
+    public SettingsPage(SettingsViewModel viewModel)
     {
         InitializeComponent();
         _viewModel = viewModel;
-        _folderPicker = folderPicker;
         BindingContext = _viewModel;
     }
 
@@ -23,16 +19,10 @@ public partial class SettingsPage : ContentPage
 
     private void ButtonLatexPath_Clicked(object sender, EventArgs e)
     {
-        _viewModel.LatexPath = _folderPicker.PickFolder().ToString();
-    }
-
-    private void picker_SelectionChanged(object? sender, PickerSelectionChangedEventArgs pickerSelectionChangedEventArgs)
-    {
-        _viewModel.picker_SelectionChanged();
-    }
-
-    private void picker_OkButtonClicked(object? sender, EventArgs eventArgs)
-    {
-        _viewModel.picker_OkButtonClicked();
+        _viewModel.GetLatexPath();
+        if (_viewModel.LatexPath != null)
+        {
+            TxtUserLatexPathEntry.Text = _viewModel.LatexPath;
+        }
     }
 }
