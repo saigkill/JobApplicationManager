@@ -1,0 +1,166 @@
+% Copyright (C) 2015-2020 Sascha Manns <Sascha.Manns@outlook.de>
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%---------------------------------------------------------------------------
+\documentclass%%
+%---------------------------------------------------------------------------
+  [fontsize=11pt,%%          Fontsize
+%---------------------------------------------------------------------------
+% Satzspiegel
+   paper=a4,%%               Paperformat
+   enlargefirstpage=on,%%    Firstpage other
+%---------------------------------------------------------------------------
+% Layout
+   parskip=half,%%           Spacing between paragraphs
+%---------------------------------------------------------------------------
+% What to place in the letter header and the addressfield
+   fromalign=right,%%        Align of letter header
+   fromphone=on,%%           Phonenumber in header (on/off)
+   fromrule=aftername,%%     Line in sender (aftername, afteraddress)
+   fromfax=off,%%            Faxnumber (on/off)
+   fromemail=on,%%           Emailaddress (on/off)
+   fromurl=off,%%            Homepage (on/off)
+   addrfield=on,%%           Adressfield for window envelope (on/off)
+   backaddress=off,%%        Senderadress above the adressfield (o/off)
+   subject=beforeopening,%%  Subject before opening
+   locfield=narrow,%%        
+   foldmarks=on,%%           Foldmarks (on/off)
+   numericaldate=off,%%      Print date numerical (on/off)
+   refline=narrow,%%         Geschaeftszeile im Satzspiegel
+   firstfoot=off,%%          Print footer (on/off)
+%---------------------------------------------------------------------------
+% Formatierung
+   draft=off%%               Draft mode (on/off)
+]{scrlttr2}
+%---------------------------------------------------------------------------
+% Used Latex Packages
+%---------------------------------------------------------------------------
+\usepackage[english, ngerman]{babel}
+\usepackage{url}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+% symbols: (cell)phone, email
+\RequirePackage{marvosym}
+% for gray color in header
+\RequirePackage{color}
+\usepackage[T1]{fontenc}
+
+%---------------------------------------------------------------------------
+% Defining fonts
+\renewcommand*\familydefault{\sfdefault} % Latin Modern Sans
+\setkomafont{fromname}{\sffamily\color{mygray}\LARGE}
+\setkomafont{subject}{\mdseries}
+\setkomafont{backaddress}{\mdseries}
+\setkomafont{fromaddress}{\small\sffamily\mdseries\color{mygray}}
+
+% -------------------------------------------------
+% Personal Data
+% -------------------------------------------------
+\input{personal_data.tex}
+
+% -------------------------------------------------
+% Details from Job Offer
+% -------------------------------------------------
+\input{application_details.tex}
+
+%---------------------------------------------------------------------------
+\begin{document}
+%---------------------------------------------------------------------------
+% Style and Position if letter header
+\LoadLetterOption{DIN} %% or: DINmtext, SN, SNleft, KOMAold.
+\makeatletter
+\@setplength{sigbeforevskip}{17mm} % Spacing from Signature to Closing
+\@setplength{firstheadvpos}{12mm} % Spacing from Top to adressfield
+\@setplength{firstfootvpos}{275mm} % Spacing from Top to Footer
+\@setplength{firstheadwidth}{\paperwidth}
+\@setplength{locwidth}{70mm}   % Breite des Locationfeldes
+\@setplength{locvpos}{65mm}    % Spacing des Locationfeldes von oben
+\ifdim \useplength{toaddrhpos}>\z@
+  \@addtoplength[-2]{firstheadwidth}{\useplength{toaddrhpos}}
+\else
+  \@addtoplength[2]{firstheadwidth}{\useplength{toaddrhpos}}
+\fi
+\@setplength{foldmarkhpos}{6.5mm}
+\makeatother
+%---------------------------------------------------------------------------
+% Defining colors
+\definecolor{mygray}{gray}{.55}
+\definecolor{myblue}{rgb}{0.25,0.50,0.75}
+\definecolor{mygruen}{rgb}{0.35,0.70,0.30}
+%---------------------------------------------------------------------------
+% Sender Data
+\setkomavar{fromname}{\firstname\ \familyname}
+\setkomavar{fromaddress}{\mystreet\\\mycity}
+\setkomavar{fromphone}[\Telefon~]{\myphone}
+\setkomavar{fromfax}[\FAX~]{+49\,(0)\,123\,456\,789\,1}
+\setkomavar{fromemail}[\Letter~]{\myemail}
+\setkomavar{fromurl}[]{\myblog}
+\setkomafont{fromaddress}{\small\rmfamily\mdseries\slshape\color{mygray}}
+
+\setkomavar{backaddressseparator}{ - }
+\setkomavar{signature}{\\[-4\baselineskip]%
+\includegraphics[scale=0.5]{$HOME/AppData/Roaming/latex_curriculum_vitae/Pictures/signatur.png}}
+%---------------------------------------------------------------------------
+% Pagestyle
+\pagestyle{plain}
+\pagenumbering{arabic}
+%---------------------------------------------------------------------------
+%---------------------------------------------------------------------------
+\firstfoot{\footnotesize%
+\textcolor{mygray}{\rule[3pt]{\textwidth}{.4pt} \\}
+\begin{tabular}[t]{l@{}}%
+\usekomavar{fromname}\\
+\usekomavar{fromaddress}\\
+\end{tabular}%
+\hfill
+\begin{tabular}[t]{l@{}}%
+  \usekomavar[\Mobilefone~]{fromphone}\\
+   \usekomavar[\Letter~]{fromemail}\\
+\end{tabular}%
+\ifkomavarempty{frombank}{}{%
+\hfill
+\begin{tabular}[t]{l@{}}%
+\usekomavar{frombank}
+\end{tabular}%
+}%
+}%
+%---------------------------------------------------------------------------
+% Date and Place
+\setkomavar{date}{den \today} % using todays date
+\setkomavar{place}{Mayen}
+%---------------------------------------------------------------------------
+
+
+%---------------------------------------------------------------------------
+% Receivers adress
+\begin{letter}{\addressstring}
+
+%---------------------------------------------------------------------------
+% Subject of the letter
+\setkomavar{subject}{\textbf{\subject}}
+%---------------------------------------------------------------------------
+\opening{\salutation}
+Ich bin Fachinformatiker in der Anwendungsentwicklung und bereits 10 Jahre im IT-Bereich tätig. Seit meinem ersten Heimcomputer (Commodore 64) beschäftige ich mich mit Computern. Erfahrungen konnte ich bereits in den Branchen Bankwesen, Gesundheit, Bauwesen und Automotive sammeln. Gearbeitet habe ich hier im Bereich der Desktop-Anwendungsentwicklung, der mobilen Appentwicklung, der Webentwicklung, der Dokumentation und des Supports. 
+
+In den letzten beiden Stellen war ich als Softwareentwickler tätig, und sowohl für die Weiterentwicklung vorhandener Anwendungen, als auch für die Konzeption und Programmierung neuer Produkte verantwortlich. So ermittelte ich den Workflow des Kunden und setzte diesen in ein leicht zu bedienendes mobiles oder Desktop-Produkt um. In allen Fällen konnte ich auch eigenverantwortliche Projekte bearbeiten. Ein besonderes Augenmerk lege ich auf die Optimierung vorhandener Projekte. Da viele der verfügbaren Dokumentationen im Softwarebereich in englischer Sprache geschrieben sind, kann ich auf meine Englischkenntnisse zurückgreifen. Auch eine schriftliche Kommunikation in Foren oder per Email sind mir möglich. Erfahrungen im agilen Umfeld können ebenfalls vorausgesetzt werden.
+
+Ausserdem habe ich ein ausgeprägtes Qualitätsbewusstsein. Gerade beim Programmieren spielt es eine Rolle, seine Programme so zu gestalten, das jeder andere damit zurechtkommt. Insgesamt wende ich die Möglichkeiten des Clean-Codes an, um meine Codebasis wartbar zu halten, bei minimalem Aufwand. Auch neue Technologien probiere ich gerne aus, um Lösungen für künftige Probleme zu haben, oder Kostenminimierungen zu bewirken.
+
+Ich wäre kurzfristig für Sie verfügbar. Auf Ihre Einladung freue ich mich sehr. %Die Gehaltsvorstellung läge bei 36.000€ p.a.
+\closing{Mit freundlichen Grüßen}
+%---------------------------------------------------------------------------
+\end{letter}
+%---------------------------------------------------------------------------
+\end{document}
+%---------------------------------------------------------------------------

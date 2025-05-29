@@ -1,0 +1,356 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Friggeri Resume/CV
+% XeLaTeX Template
+% Version 1.0 (5/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Adrien Friggeri (adrien@friggeri.net)
+% https://github.com/afriggeri/CV
+% Modfied by: Sascha Manns (Sascha.Manns@outlook.de)
+% https://github.com/saigkill/latex_curriculum_vitae-dotnet
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important notes:
+% This template needs to be compiled with XeLaTeX and the bibliography, if used,
+% needs to be compiled with biber rather than bibtex.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
+
+\hypersetup{
+pdftitle={Bewerbungsunterlagen}, %%
+pdfauthor={Sascha Manns}, %%
+pdfsubject={Bewerbungsunterlagen}, %%
+pdfcreator={XeLaTEX and Biber with hyperref-package.},
+pdfproducer={Sascha Manns, Mayen}, %%
+pdfkeywords={Manns, Mayen, Bewerbung, IT-Support, Linux, Windows, Programmierer, Buchautor, Schriftsteller, Geschäftsprozess} %%
+}
+\usepackage{graphicx}
+\usepackage{xltxtra}
+\usepackage{progressbar}
+\usepackage{pdfpages}
+
+\addbibresource{bibliography.bib}
+\input{personal_data.tex}
+
+\begin{document}
+
+\header{\firstname}{\familyname}{Fachinformatiker Anwendungsentwicklung} % Your name and current job title/field
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{aside} % In the aside, each new line forces a line break
+\section{Kontakt}
+~
+\includegraphics[width=5cm]{$HOME/AppData/Roaming/JobApplicationManager/Pictures/userpic.jpg}
+~
+\mystreet
+\mycity
+Germany
+~
+\myphone
+~
+\href{mailto:Sascha.Manns@outlook.de}{Sascha.Manns@outlook.de}\includegraphics[width=0.4cm]{$HOME/AppData/Roaming/JobApplicationManager/Pictures/email.png}
+\href{http://saschamanns.de}{saschamanns.de}\includegraphics[width=0.3cm]{$HOME/AppData/Roaming/JobApplicationManager/Pictures/aboutme.png}
+Geburtsdatum: 01.10.1979
+\section{Social Media}
+%\href{https://www.xing.com/profile/SaschaZyroslawKyrill_Manns}{SaschaManns}\includegraphics[width=0.4cm]{$HOME/AppData/Roaming/JobApplicationManager/Pictures/xing.png}
+\href{https://www.linkedin.com/in/saigkill}{saigkill}\includegraphics[width=0.4cm]{$HOME/AppData/Roaming/JobApplicationManager/Pictures/linkedin.png}
+\href{https://www.facebook.com/sascha.manns}{sascha.manns}\includegraphics[width=0.4cm]{$HOME/AppData/Roaming/JobApplicationManager/Pictures/facebook.png}
+\href{https://twitter.com/saigkill}{saigkill}\includegraphics[width=0.4cm]{$HOME/AppData/Roaming/JobApplicationManager/Pictures/twitter.png}
+\href{https://wakatime.com/@saigkill}{saigkill}\includegraphics[width=0.4cm]{$HOME/AppData/Roaming/JobApplicationManager/Pictures/wakatime.jpg}
+\href{https://codestats.net/users/saigkill}{saigkill}\includegraphics[width=0.4cm]{$HOME/AppData/Roaming/JobApplicationManager/Pictures/codestats.png}
+\end{aside}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Berufserfahrung}
+
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{03/2020 -- 08/2020}
+{Softwareentwickler}
+{Andernach}
+{Logis Softwareentwicklung GmbH\\
+	Detailierte Aufgaben:
+	\begin{itemize}
+		\item Konzeption \& Programmierung betriebswirtschaftlicher Anwendungen und Prozesse
+		\item Realisierung \& Anpassung Belegerstellung
+	\end{itemize}
+	Stack: \textit{C\#, Visual Basic 6, Cachè, Windows}
+}
+%------------------------------------------------
+\entry
+{03/2018 -- 12/2019}
+{App \& Webentwickler}
+{Mendig}
+{CPS solutions GmbH \& Co KG\\
+	Detailierte Aufgaben:
+	\begin{itemize}
+		\item Konzeption \& Programmierung mobiler Anwendungen
+		\item Realisierung \& Anpassung Belegerstellung
+        	\item Erstellung Dokumentation
+        	\item telefonischer Support
+	\end{itemize}
+	Stack: \textit{JavaScript, PHP, Wordpress, Windows, MS-SQL, MYSQL}
+}
+%------------------------------------------------
+%\entry
+%{10/2015 -- 02/2018}
+%{arbeit suchend}
+%{}
+%{}
+
+\entry
+{09/2014 -- 09/2015}
+{Autor Geschäftsprozessdokumentation}
+{Andernach}
+{XCOM AG (jetzt Fintech) \\
+	Detailierte Aufgaben:
+	\begin{itemize}
+		\item Autor Geschäftsprozessdokumentation (Software \& Bankwesen)
+		\item Artikelerstellung und Pflege internes Wiki
+		\item Produktion Präsentationen für Mandanten und interne Schulungen
+		\item Modellierung von Geschäftsprozessen nach BPMN
+	\end{itemize}
+	Stack: \textit{XML, DocBook, Ruby, Linux C\#}
+}
+%------------------------------------------------
+\entry
+{02/2014 -- 05/2014}
+{IT-Supporter/Dispatcher}
+{Mannheim}
+{Hays Temp GmbH \\
+    Detailierte Aufgaben bei ITSCare Neuwied (ZBV):
+    \begin{itemize}
+        \item Dispatching und Teamcontroling
+        \item AmSys/IDM (AOK Krankenkassen)
+        \item Eröffnung, Entsperrung oder Löschung von Benutzerkonten
+        \item Passwort- und Rechtevergaben
+        \item SLA-konforme Bearbeitung von eingehenden Störungen (betreffend Benutzerverwaltung) im Rahmen des Incident-Managements
+        \item Pflege von Logon-Prozeduren
+        \item Annahme, Erfassung und Bearbeitung eingehender Benutzeranträge
+        \item Benutzerkontenverwaltung im Active Directory
+    \end{itemize}
+		Stack: \textit{Windows, SAP Amsys IDM, Active Directory}
+}
+%------------------------------------------------
+\entry
+{07/2013 -- 01/2014}
+{Buchautor}
+{Raleigh, USA}
+{Lulu Press Inc.\\
+    Detailierte Aufgaben:
+    \begin{itemize}
+        \item Schreiben des Handbuchs
+        \item Einführung des Lektorenteams in das Projekt
+        \item Einführung einer Google Code-In Studentin in den Textsatz (Teilnahme als Mentor)
+    \end{itemize}
+		Stack: \textit{Linux, DocBook}
+}
+\end{entrylist}
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{08/2010 -- 06/2013}
+{Community \& Support Agent}
+{Homeoffice}
+{open-slx GmbH \\
+    Detailierte Aufgaben:
+    \begin{itemize}
+        \item Level 1 \& 2 Support via Telefon und Email
+        \item Community Management
+        \item Projektleitung deutsches openSUSE Wiki. Migration des Wikis zu neuer Struktur
+        \item openSUSE Weekly News
+        \item Testen von Software
+        \item Webseitenbetreuung \& Social Media
+        \item Dokumentation
+        \item Paketverwaltung einiger RPM-Pakete
+        \item openSUSE Membership Application Team
+    \end{itemize}
+		Stack: \textit{Linux, DocBook, Shell (Bash), Make}
+}
+%------------------------------------------------
+\entry
+{07/2007 -- 12/2014}
+{Softwareentwickler/Teamleiter}
+{Homeoffice}
+{openSUSE Linux Projekt\\
+    Detailierte Aufgaben:
+    \begin{itemize}
+        \item Leiter des openSUSE Newsletters und publikation in bis zu 12 Sprachen
+        \item Erfinder eines neuen Podcastformates (Vertonte Weekly News)
+        \item openSUSE Medical Project (Subprojektgründer)
+        \item Beschaffung, Aktualisierung des Sourcecodes im Buildservice
+        \item Compiling und Packaging neuer Binärpakete
+        \item Verteilung via Buildservice
+    \end{itemize}
+		Stack: \textit{Linux, Shell (Bash), Make, Portable Objects}
+}
+%-----------------------------------------------
+\entry
+{07/2000 -- 06/2007}
+{Ersatzdienst zum Zivildienst}
+{Selters/Ts.}
+{Orden der Vollzeitdiener der ZJ\\
+		 Detailierte Aufgaben:
+    \begin{itemize}
+        \item Linux-Verfügbarmachung der eigenen Bibelsoftware
+        \item Betatesting der Software        
+    \end{itemize}
+		Stack: \textit{Windows, Linux}
+}
+%------------------------------------------------
+\entry
+{08/1998 -- 07/2000}
+{Kaufmann im Einzelhandel}
+{Mendig}
+{Auto Deschner GmbH\\
+    Detailierte Aufgaben:
+    \begin{itemize}
+        \item Einkauf \& Warenannahme \& Kontrolle
+        \item Bestandsbuchungen der Waren
+        \item Kundenbetreuung
+        \item Rechnungserstellung
+        \item Projektplanung
+    \end{itemize}
+		Stack: \textit{Unix, BASIC}
+}
+%------------------------------------------------
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Aus- und Weiterbildung}
+
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{04/2019 -- 08/2020}
+{Fachinformatiker Anwendungsentwicklung}
+{Fernstudium}
+{\begin{itemize}
+        \item Objektorientierte Programmierung mit VB: Klassen, Vererbung, UML, Windows Benutzeroberflächen, Formulare \& Grafik, Datenbanken
+        \item MS Access: Grundlagen, Datenbanktheorie, VBA
+    \end{itemize}
+{\emph{Abschluss: Fachinformatiker Anwendungsentwicklung} (Note: 1,5)}
+}
+%------------------------------------------------
+\newline
+\entry
+{11/2013 -- 12/2013}
+{Web Engineering I}
+{Web}
+{Technische Hochschule Mittelhessen}
+%-----------------------------------------------
+\entry
+{08/1995 -- 08/1998}
+{Ausbildung zum Kaufmann um Einzelhandel}
+{Mendig}
+{Auto Deschner GmbH\\
+Allgemeine kaufm. Tätigkeiten.
+}
+%-----------------------------------------------
+\entry
+{08/1995}
+{Hauptschulabschluss}
+{Mayen}
+{Hauptschule Hinter-Burg}
+%-----------------------------------------------
+\end{entrylist}
+\newpage
+
+%----------------------------------------------------------------------------------------
+% COMPUTER SKILLS
+% ---------------------------------------------------------------------------------------
+
+\section{Sprachen}
+\begin{itemize}
+	\item Deutsch \progressbar[linecolor=blue,tickscolor=orange,emptycolor=white,filledcolor=blue]{1.0}
+	\item Englisch \progressbar[linecolor=blue,tickscolor=orange,emptycolor=white,filledcolor=blue]{0.8}
+\end{itemize}
+
+\section{IT-Kenntnisse}
+\begin {itemize}
+	\item Office: Microsoft365 
+  \item Cloud Computing: Microsoft Azure
+	\item OS: Linux, Windows 10
+	\item CMS: Wordpress 
+	\item Agile: SCRUM 
+\end{itemize}
+
+\section{Programmierung}
+\begin{itemize}
+	\item .NET Framework (C\# \& Visual Basic), Windows Forms, VBA
+	\item .NET Core (C\#), Razor, Windows Presentation Foundation, Lokalisierung \& Globalisierung	
+	\item Ruby, Jekyll
+	%\item JAVA 
+	\item HTML5, CSS, JavaScript 
+	\item SOAP 
+	\item DocBook/XML
+	\item Jasper Report, List \& Label
+	\item MS SQL (TSQL), MySQL 
+	\item Intersystems Caché
+\end{itemize}
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Interessen}
+\begin{itemize}
+  \item Neue Programmiersprachen, Frameworks und Dienste lernen
+  \item Bringe gerne anderen etwas neues bei
+  \item Reise gerne in andere Länder um neue Impulse zu bekommen
+  \item Mit der Familie spazieren gehen  
+\end{itemize}
+
+%----------------------------------------------------------------------------------------
+%	MEMBERSHIPS SECTION
+%----------------------------------------------------------------------------------------
+\section{Mitgliedschaften}
+\begin{itemize}
+	\item Gesellschaft für Informatik
+	\item Forum Informatiker für Frieden und Gesellschaftliche Verantwortung
+	\item Mitgliedschaft in der Fachgruppe "Wirtschaftsinformatik" der Gesellschaft für Informatik
+\end{itemize}
+
+\newpage
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS SECTION
+%----------------------------------------------------------------------------------------
+\section{Publikationen}
+
+\printbibsection{article}{Artikel} % Print all articles from the bibliography
+
+\printbibsection{book}{Bücher} % Print all books from the bibliography
+
+\printbibsection{misc}{other publications} % Print all miscellaneous entries from the bibliography
+
+%\printbibsection{report}{research reports} % Print all research reports from the bibliography
+
+%----------------------------------------------------------------------------------------
+
+\begin{center}
+\includegraphics[scale=0.7]{$HOME/AppData/Roaming/JobApplicationManager/Pictures/signatur.png} \\
+\begin{tabular}{@{}l@{}}
+\\ $\frac{}{\strut\textnormal{Sascha Manns, Mayen den \today}}$
+\end{tabular}
+\end{center}
+
+%\section{Anhang}
+%---------------------------------------------------------------------------
+\end{document}
