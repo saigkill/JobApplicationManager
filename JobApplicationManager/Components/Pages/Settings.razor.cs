@@ -29,7 +29,6 @@ using Syncfusion.Blazor.Inputs;
 
 namespace JobApplicationManager.Components.Pages;
 
-
 /// <summary>
 /// Class Settings.
 /// Implements the <see cref="ComponentBase" />
@@ -64,14 +63,13 @@ public partial class Settings : ComponentBase
         Phone = "0123456789",
         Email = "max.mustermann@example.com",
         Homepage = "https://www.example.com",
-        BitlyApiKey = "YOUR_BITLY_API_KEY",
+        BitlyApiKey = "", // No default value for Bitly API Key, it triggers a Warning.
         LatexPath = "/usr/local/texlive/2023/bin/x86_64-linux",
         SmtpServer = "smtp.example.com",
         SmtpUser = "your_smtp_user",
         SmtpPass = "your_smtp_password",
         SmtpPort = 587,
         SmtpServerOption = "Auto"
-
     };
 
     /// <summary>
@@ -80,8 +78,6 @@ public partial class Settings : ComponentBase
     /// <returns>A Task representing the asynchronous operation.</returns>
     protected override async Task OnInitializedAsync()
     {
-
-
     }
 
     /// <summary>
@@ -121,7 +117,8 @@ public partial class Settings : ComponentBase
         {
             foreach (var file in args.Files)
             {
-                var path = @"" + file.FileInfo.Name;
+                var path = "" + file.FileInfo.Name;
+
                 // The FileUploader component is set for single file upload, so we can directly access the first file.
                 UserSettings.LatexPath = path;
             }

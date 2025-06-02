@@ -4,7 +4,7 @@
 ## DESCRIPTION
 
 This Application helps finding a new job, write a complete set of job application docs and helps you to manage and track your applications. One of the main targets is to create beautiful 
-applications by using the great LaTEX system. By using the .NET MAUI technology currently it supports Windows and MacOS systems.
+applications by using the great LaTEX system. By using the Blazor technology currently it supports Windows, Linux and MacOS systems.
 
 JobApplicationManager is released under the MIT License, see the file `LICENSE.md` for more information.
 
@@ -16,11 +16,11 @@ JobApplicationManager is released under the MIT License, see the file `LICENSE.m
 
 | What | Status |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|Code quality | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=saigkill_JobApplicationManager2&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=saigkill_JobApplicationManager2) |
-|Continuous integration Dev | [![Build status](https://dev.azure.com/saigkill/JobApplicationManager/_apis/build/status/JobApplicationManager%20Win%20Dev)](https://dev.azure.com/saigkill/JobApplicationManager/_build/latest?definitionId=44) |
-|Continuous integration Prod | [![Build status](https://dev.azure.com/saigkill/JobApplicationManager/_apis/build/status/JobApplicationManager%20Win%20Prod)](https://dev.azure.com/saigkill/JobApplicationManager/_build/latest?definitionId=40) |
+|Code quality | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=saigkill_JobApplicationManager&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=saigkill_JobApplicationManager) |
+|Continuous integration Dev | [![Build status](https://dev.azure.com/saigkill/JobApplicationManager/_apis/build/status/JobApplicationManager-ASP.NET-CI-Stage)](https://dev.azure.com/saigkill/JobApplicationManager/_build/latest?definitionId=69) |
+|Continuous integration Prod | [![Build status](https://dev.azure.com/saigkill/JobApplicationManager/_apis/build/status/JobApplicationManager-ASP.NET-CI-prod)](https://dev.azure.com/saigkill/JobApplicationManager/_build/latest?definitionId=70) |
 |Open Issues Github | ![GitHub issues](https://img.shields.io/github/issues/saigkill/JobApplicationManager) |
-|Open Issues Azure | [![Board Status](https://dev.azure.com/saigkill/fdc6f070-5933-4644-857b-7e13ee42fada/fc89a74c-8881-4092-8f33-8f1750ef7db0/_apis/work/boardbadge/fc52696a-9a9e-461d-bee2-8e0b7d36ad7c)](https://dev.azure.com/saigkill/fdc6f070-5933-4644-857b-7e13ee42fada/_boards/board/t/fc89a74c-8881-4092-8f33-8f1750ef7db0/Stories/)|
+|Open Issues Azure | [![Board Status](https://dev.azure.com/saigkill/ef7cd0ee-17fd-427b-b557-1176e924a6b3/d2fdc8f2-c55d-4542-994c-6f4d3ccb456f/_apis/work/boardbadge/f68183c0-4457-42cb-b8ff-aa359e13e302)](https://dev.azure.com/saigkill/ef7cd0ee-17fd-427b-b557-1176e924a6b3/_boards/board/t/d2fdc8f2-c55d-4542-994c-6f4d3ccb456f/Stories/)|
 |Conventional commits | [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) |
 
 ## FEATURES
@@ -35,15 +35,12 @@ JobApplicationManager is released under the MIT License, see the file `LICENSE.m
 
 ## REQUIREMENTS
 
-* Windows 10 (Minimum 19041)/ Windows 11
-* MacOS 10.15 (Catalina) or higher
+* Any computer who runs Docker.
 
 ## REQUIREMENTS (hard dependencies)
 
 * LaTEX Installation. More on https://www.latex-project.org/get/
 * Syncfusion Essential Studio Community Edition (https://www.syncfusion.com/products/communitylicense). More in LICENSE.md.
-
-If you use the bought version via Windows Store or Apple Store, you *don't* need any keys. The app will automatically delivered with the keys.
 
 # INSTALLATION
 
