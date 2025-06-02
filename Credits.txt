@@ -1,0 +1,7 @@
+﻿We are using the following images in our project:
+
+* Muhammad Usman https://www.flaticon.com/de/autoren/muhammad-usman
+* Md Tanvirul https://www.flaticon.com/de/autoren/md-tanvirul-haque
+
+Sadly i have just found out, that i missed some references. This was not intentional and i will add them as soon as possible.
+If you find any other missing references, please let me know.
