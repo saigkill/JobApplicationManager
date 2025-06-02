@@ -1,5 +1,21 @@
-﻿<Router AppAssembly="@typeof(Program).Assembly">
-    <Found Context="routeData">
+﻿@using System.ComponentModel
+@using System.ComponentModel.DataAnnotations
+@using System.Net.Http
+@using BootstrapBlazor.Components
+@using JobApplicationManager
+@using JobApplicationManager.Components.Pages
+@using JobApplicationManager.Components.Shared
+@using JobApplicationManager.Infrastructure.Data
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.Extensions.Localization
+@using Microsoft.JSInterop
+@using TModel = System.Object
+<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="RouteData routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
     </Found>
 </Router>

@@ -1,0 +1,37 @@
+﻿@page "/settings"
+@using System.ComponentModel
+@using System.ComponentModel.DataAnnotations
+@using System.Net.Http
+@using BootstrapBlazor.Components
+@using JobApplicationManager
+@using JobApplicationManager.Components.Pages
+@using JobApplicationManager.Components.Shared
+@using JobApplicationManager.Infrastructure.Data
+@using JobApplicationManager.Infrastructure.Models
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.Extensions.Localization
+@using Microsoft.JSInterop
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.DataForm
+@using Syncfusion.Blazor.Buttons
+@layout MainLayout
+
+<h3>@_localizer["UserSettingsTitle"]</h3>
+
+<SfDataForm ID="Usersettings" Width="50%"
+            Model="@UserSettings">
+    <FormValidator>
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+    </FormValidator>
+    <FormItems>
+        <FormAutoGenerateItems></FormAutoGenerateItems>
+    </FormItems>
+    <FormButtons>
+        <SfButton typeof="submit">Register</SfButton>
+    </FormButtons>
+</SfDataForm>

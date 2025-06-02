@@ -1,8 +1,24 @@
-﻿@inject IHostEnvironment Env
+﻿@using System.ComponentModel
+@using System.ComponentModel.DataAnnotations
+@using System.Net.Http
+@using BootstrapBlazor.Components
+@using JobApplicationManager
+@using JobApplicationManager.Components.Pages
+@using JobApplicationManager.Components.Shared
+@using JobApplicationManager.Infrastructure.Data
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.Extensions.Localization
+@using Microsoft.JSInterop
+@using TModel = System.Object
+@inject IHostEnvironment Env
 @inject IStringLocalizer<App> Localizer
 
 <!DOCTYPE html>
-<html lang="en" data-bs-theme='light'>
+<html lang="en" data-bs-theme="light">
 
 <head>
     <meta charset="utf-8" />
@@ -21,6 +37,7 @@
     <Link Href="_content/BootstrapBlazor/css/bootstrap.blazor.bundle.min.css" />
     <Link Href="_content/BootstrapBlazor/css/motronic.min.css" />
     <Link Href="JobApplicationManager.styles.css" />
+    <Link Href="_content/Syncfusion.Blazor.Core/styles/syncfusion-blazor.css" />
     <Link Href="css/app.css" />
     <title>JobApplicationManager</title>
     <HeadOutlet @rendermode="new InteractiveServerRenderMode(false)" />
@@ -32,6 +49,7 @@
     <ReconnectorOutlet ReconnectInterval="5000" @rendermode="new InteractiveServerRenderMode(false)" />
 
     <Script Src="_content/BootstrapBlazor/js/bootstrap.blazor.bundle.min.js"></Script>
+    <script src="_content/Syncfusion.Blazor.Core/scripts/syncfusion-blazor.min.js" type="text/javascript"></script>
     <script src="_framework/blazor.web.js"></script>
 </body>
 

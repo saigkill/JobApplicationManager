@@ -17,78 +17,106 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // </copyright>
 
-namespace JobApplicationManager
+using JobApplicationManager.Infrastructure.Helpers;
+
+using NLog.Web;
+
+namespace JobApplicationManager;
+
+using JobApplicationManager.Components;
+using JobApplicationManager.Infrastructure.Data;
+using JobApplicationManager.Infrastructure.Data.Repositories;
+
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
+
+using NLog;
+
+using Saigkill.Toolbox.Services;
+
+using Syncfusion.Blazor;
+
+using System.Text;
+
+/// <summary>
+/// Main entry point for the application.
+/// </summary>
+public static class Program
 {
-    using JobApplicationManager.Components;
-    using JobApplicationManager.Data;
-    using JobApplicationManager.Data.Repositories;
-
-    using Microsoft.AspNetCore.SignalR;
-    using Microsoft.EntityFrameworkCore;
-
-    using Saigkill.Toolbox.Services;
-
-    using System.Text;
-
-    /// <summary>
-    /// Main entry point for the application.
-    /// </summary>
-    public static class Program
+    private static void Main(string[] args)
     {
-        private static void Main(string[] args)
+        var builder = WebApplication.CreateBuilder(args);
+
+        // Add services to the container.
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+        var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+        logger.Debug("init main");
+
+        builder.Services.AddRazorComponents()
+            .AddInteractiveServerComponents();
+
+        builder.Services.AddBootstrapBlazor();
+
+        AddServices(builder);
+
+        ConfigureDatabase(builder.Services, builder.Configuration);
+
+        ConfigureSyncfusion(builder);
+
+        // 增加 SignalR 服务数据传输大小限制配置
+        builder.Services.Configure<HubOptions>((HubOptions option) => option.MaximumReceiveMessageSize = null);
+
+        var app = builder.Build();
+
+        if (!app.Environment.IsDevelopment())
         {
-            var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
-            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-
-            builder.Services.AddRazorComponents().AddInteractiveServerComponents();
-
-            builder.Services.AddBootstrapBlazor();
-
-            AddServices(builder);
-
-            ConfigureDatabase(builder.Services, builder.Configuration);
-
-            // 增加 SignalR 服务数据传输大小限制配置
-            builder.Services.Configure<HubOptions>(option => option.MaximumReceiveMessageSize = null);
-
-            var app = builder.Build();
-
-            if (!app.Environment.IsDevelopment())
-            {
-                app.UseExceptionHandler("/Error");
-                app.UseResponseCompression();
-            }
-
-            string[] supportedCultures = ["en-US", "de-DE"];
-            var localizationOptions = new RequestLocalizationOptions()
-                .SetDefaultCulture(supportedCultures[0])
-                .AddSupportedCultures(supportedCultures)
-                .AddSupportedUICultures(supportedCultures);
-
-            app.UseRequestLocalization(localizationOptions);
-
-            app.UseStaticFiles();
-
-            app.UseAntiforgery();
-
-            app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
-
-            app.Run();
+            app.UseExceptionHandler("/Error");
+            app.UseResponseCompression();
         }
 
-        private static void ConfigureDatabase(IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddDbContext<JobApplicationManagerContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-        }
+        string[] supportedCultures = ["en-US", "de-DE"];
+        var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
+            .AddSupportedCultures(supportedCultures).AddSupportedUICultures(supportedCultures);
 
-        private static void AddServices(WebApplicationBuilder builder)
+        app.UseRequestLocalization(localizationOptions);
+
+        app.UseStaticFiles();
+
+        DoSetup();
+
+        app.UseAntiforgery();
+
+        app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
+
+        app.Run();
+    }
+
+    private static void ConfigureDatabase(IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddDbContext<JobApplicationManagerContext>((DbContextOptionsBuilder options) =>
+            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+    }
+
+    private static void AddServices(WebApplicationBuilder builder)
+    {
+        builder.Services.AddScoped<ICsvService, CsvService>();
+        builder.Services.AddScoped<IUserRepository, UserRepository>();
+        builder.Services.AddLocalization();
+        builder.Services.AddSyncfusionBlazor();
+        builder.Host.UseNLog();
+    }
+
+    private static void ConfigureSyncfusion(WebApplicationBuilder builder)
+    {
+        if (builder.Configuration["SyncfusionLicenseKey"] is not null)
         {
-            builder.Services.AddScoped<ICsvService, CsvService>();
-            builder.Services.AddScoped<IUserRepository, UserRepository>();
-            builder.Services.AddLocalization();
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(builder.Configuration["SyncfusionLicenseKey"]);
         }
     }
 
+    private static void DoSetup()
+    {
+        Setup.CheckDocumentsPath();
+    }
 }

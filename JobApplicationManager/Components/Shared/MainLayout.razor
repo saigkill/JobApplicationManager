@@ -1,4 +1,20 @@
-﻿@inherits LayoutComponentBase
+﻿@using System.ComponentModel
+@using System.ComponentModel.DataAnnotations
+@using System.Net.Http
+@using BootstrapBlazor.Components
+@using JobApplicationManager
+@using JobApplicationManager.Components.Pages
+@using JobApplicationManager.Components.Shared
+@using JobApplicationManager.Infrastructure.Data
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.Extensions.Localization
+@using Microsoft.JSInterop
+@using TModel = System.Object
+@inherits LayoutComponentBase
 
 
 <BootstrapBlazorRoot>
@@ -11,7 +27,9 @@
             <div class="flex-fill d-sm-none">
             </div>
             @* <Widget></Widget> *@
-            <div class="layout-drawer" @onclick="@(e => IsOpen = !IsOpen)"><i class="fa fa-gears"></i></div>
+            <div class="layout-drawer" @onclick="@((MouseEventArgs e) => IsOpen = !IsOpen)">
+                <i class="fa fa-gears"></i>
+            </div>
         </Header>
         <Side>
             <div class="layout-banner">
@@ -36,13 +54,13 @@
         </NotFound>
     </Layout>
 
-    <Drawer Placement="Placement.Right" @bind-IsOpen="@IsOpen" IsBackdrop="true">
+    <Drawer Placement="BootstrapBlazor.Components.Placement.Right" @bind-IsOpen="@IsOpen" IsBackdrop="true">
         <div class="layout-drawer-body">
-            <div class="btn btn-info w-100" @onclick="@(e => IsOpen = false)">Close</div>
+            <div class="btn btn-info w-100" @onclick="@((MouseEventArgs e) => IsOpen = false)">Close</div>
             <GroupBox Title="Layoutsettings">
                 <div class="row">
                     <div class="col-6">
-                        <div class="layout-item @(IsFullSide ? "active d-flex" : "d-flex")" @onclick="@(e => IsFullSide = true)" data-toggle="tooltip" title="Toggle Alignment">
+                        <div class="layout-item @(IsFullSide ? "active d-flex" : "d-flex")" @onclick="@((MouseEventArgs e) => IsFullSide = true)" data-toggle="tooltip" title="Toggle Alignment">
                             <div class="layout-left d-flex flex-column">
                                 <div class="layout-left-header"></div>
                                 <div class="layout-left-body flex-fill"></div>
@@ -55,7 +73,7 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <div class="layout-item flex-column @(IsFullSide ? "d-flex" : "active d-flex")" @onclick="@(e => IsFullSide = false)" data-toggle="tooltip" title="StruCture">
+                        <div class="layout-item flex-column @(IsFullSide ? "d-flex" : "active d-flex")" @onclick="@((MouseEventArgs e) => IsFullSide = false)" data-toggle="tooltip" title="StruCture">
                             <div class="layout-top">
                             </div>
                             <div class="layout-body d-flex flex-fill">

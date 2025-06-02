@@ -40,8 +40,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbmRleC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/sascha/source/repos/VisualStudioProjects/Private/JobApplicationManager/JobApplicationManager/Components/Pages/UserSettings.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyU2V0dGluZ3MucmF6b3I=
+[C:/Users/sascha/source/repos/VisualStudioProjects/Private/JobApplicationManager/JobApplicationManager/Components/Pages/Settings.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTZXR0aW5ncy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/sascha/source/repos/VisualStudioProjects/Private/JobApplicationManager/JobApplicationManager/Components/Routes.razor]

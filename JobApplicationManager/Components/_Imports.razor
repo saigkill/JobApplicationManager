@@ -1,10 +1,11 @@
-﻿@using BootstrapBlazor.Components
-
+﻿@using System.ComponentModel
+@using System.ComponentModel.DataAnnotations
+@using System.Net.Http
+@using BootstrapBlazor.Components
 @using JobApplicationManager
-@using JobApplicationManager.Data
 @using JobApplicationManager.Components.Pages
 @using JobApplicationManager.Components.Shared
-
+@using JobApplicationManager.Infrastructure.Data
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Components.Forms
@@ -12,7 +13,9 @@
 @using Microsoft.AspNetCore.Components.Web
 @using Microsoft.Extensions.Localization
 @using Microsoft.JSInterop
-
-@using System.ComponentModel
-@using System.ComponentModel.DataAnnotations
-@using System.Net.Http
+@using TModel = System.Object
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.DataForm
+@using Syncfusion.Blazor.Buttons
