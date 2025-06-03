@@ -118,55 +118,55 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddressFemale" xml:space="preserve">
-    <value>Frau</value>
+    <value>Mrs.</value>
   </data>
   <data name="AddressMale" xml:space="preserve">
-    <value>Herrn</value>
+    <value>Mr.</value>
   </data>
   <data name="AppSettings" xml:space="preserve">
-    <value>Appeinstellungen</value>
+    <value>App settings</value>
   </data>
   <data name="BitlyApiKey" xml:space="preserve">
-    <value>Bit.ly API Schlüssel</value>
+    <value>Bit.ly API Key</value>
   </data>
   <data name="ChooseEmailOption" xml:space="preserve">
-    <value>Wählen Sie die Emailoption</value>
+    <value>Choose the Email option</value>
   </data>
   <data name="City" xml:space="preserve">
-    <value>Stadt</value>
+    <value>City</value>
   </data>
   <data name="CityError" xml:space="preserve">
-    <value>Stadt muss angegben werden (Max. 100 Zeichen)</value>
+    <value>City must be specified (max. 100 characters)</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Emailadresse</value>
+    <value>Email address</value>
   </data>
   <data name="EmailError" xml:space="preserve">
-    <value>Emailadresse muss angegeben werden. (Max. 255 Zeichen)</value>
+    <value>Email must be specified (max. 255 characters)</value>
   </data>
   <data name="EmailHtml" xml:space="preserve">
     <value>&amp;lt;p&amp;gt;{0}&amp;lt;br&amp;gt;
-&amp;lt;p&amp;gt;anbei sende ich Ihnen meine Bewerbungsunterlagen.&amp;lt;br&amp;gt;
-&amp;lt;p&amp;gt;Mit freundlichem Gruß&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;You will find the documents for my application attached.&amp;lt;br&amp;gt;
+&amp;lt;p&amp;gt;Sincerley&amp;lt;/p&amp;gt;
 &amp;lt;p align=left&amp;gt;{1}&amp;lt;br&amp;gt;
 &amp;lt;center&amp;gt;&amp;lt;img src=""cid:{2}"" width=""10%""&amp;gt;&amp;lt;/center&amp;gt;&amp;lt;/p&amp;gt;</value>
   </data>
   <data name="EmailPlain" xml:space="preserve">
     <value>{0}
 
-anbei sende ich Ihnen meine Bewerbungsunterlagen.
+You will find the documents for my application attached.
 
-Mit freundlichem Gruß
+Sincerely
 {1}</value>
   </data>
   <data name="EmailSent" xml:space="preserve">
-    <value>Email gesendet</value>
+    <value>Email sent</value>
   </data>
   <data name="Firstname" xml:space="preserve">
-    <value>Vorname</value>
+    <value>First name</value>
   </data>
   <data name="FirstnameError" xml:space="preserve">
-    <value>Vorname erforderlich. (Max. 50 Zeichen)</value>
+    <value>First name must be specified (max. 50 Zeichen)</value>
   </data>
   <data name="GenderFemale" xml:space="preserve">
     <value>Weiblich</value>
@@ -175,96 +175,96 @@ Mit freundlichem Gruß
     <value>Männlich</value>
   </data>
   <data name="GenderUnknown" xml:space="preserve">
-    <value>Unbekannt</value>
+    <value>Unknown</value>
   </data>
   <data name="Hello" xml:space="preserve">
-    <value>Hallo</value>
+    <value>Hello</value>
   </data>
   <data name="Homepage" xml:space="preserve">
-    <value>Deine Homepage</value>
+    <value>Your Homepage</value>
   </data>
   <data name="HomepageError" xml:space="preserve">
-    <value>Maximal 255 Zeichen</value>
+    <value>Maximal 255 characters</value>
   </data>
   <data name="HRDepartment" xml:space="preserve">
-    <value>Personalabteilung</value>
+    <value>HR Department</value>
   </data>
   <data name="LatexPath" xml:space="preserve">
-    <value>Pfad zu pdflatex</value>
+    <value>Path to pdflatex</value>
   </data>
   <data name="LatexPathError" xml:space="preserve">
-    <value>Der Pfad zu pdflatex muss angegeben werden. (Max. 200 Zeichen)</value>
+    <value>The path to pdflatex must be specified. (Max. 200 characters</value>
   </data>
   <data name="Phone" xml:space="preserve">
-    <value>Telefonnummer</value>
+    <value>Phone number</value>
   </data>
   <data name="PhoneError" xml:space="preserve">
-    <value>Telefonnummer muss angegeben werden. (Max. 50 Zeichen)</value>
+    <value>Phone number must be specified (max. 50 characters)</value>
   </data>
   <data name="Postcode" xml:space="preserve">
-    <value>Postleitzahl</value>
+    <value>Postcode</value>
   </data>
   <data name="PostcodeError" xml:space="preserve">
-    <value>Postleitzahl muss anegegeben werden. (Max. 10 Zeichen)</value>
+    <value>Postcode must be specified (Max. 10 characters)</value>
   </data>
   <data name="SalutationFemale" xml:space="preserve">
-    <value>Sehr geehrte Frau</value>
+    <value>Dear Mrs.</value>
   </data>
   <data name="SalutationMale" xml:space="preserve">
-    <value>Sehr geehrter Herr</value>
+    <value>Dear Mr.</value>
   </data>
   <data name="SalutationUnknown" xml:space="preserve">
-    <value>Sehr geehrte Damen und Herren</value>
+    <value>Ladies and Gentlemen</value>
   </data>
   <data name="SmtpPass" xml:space="preserve">
-    <value>SMTP Passwort</value>
+    <value>SMTP Password</value>
   </data>
   <data name="SmtpPassError" xml:space="preserve">
-    <value>Password muss angegeben werden. (Max. 20 Zeichen)</value>
+    <value>Password must be specified. (Max. 20 characters)</value>
   </data>
   <data name="SmtpPort" xml:space="preserve">
-    <value>SMTP Serverport</value>
+    <value>SMTP Server port</value>
   </data>
   <data name="SmtpPortError" xml:space="preserve">
-    <value>Port für SMTP Server muss angegeben werden.</value>
+    <value>Port for SMTP Server must be specified.</value>
   </data>
   <data name="SmtpServer" xml:space="preserve">
     <value>SMTP Server Url</value>
   </data>
   <data name="SmtpServerError" xml:space="preserve">
-    <value>Url für SMTP Server muss angegeben werden. (Max. 255 Zeichen)</value>
+    <value>Url for SMTP server must be specified. (Max. 255 characters)</value>
   </data>
   <data name="SmtpServerOption" xml:space="preserve">
-    <value>SMTP Serveroption</value>
+    <value>SMTP server option</value>
   </data>
   <data name="SmtpServerOptionError" xml:space="preserve">
-    <value>Option muss gesetzt werden.</value>
+    <value>Option must be specified.</value>
   </data>
   <data name="SmtpUser" xml:space="preserve">
-    <value>SMTP Benutzername</value>
+    <value>SMTP Username</value>
   </data>
   <data name="SmtpUserError" xml:space="preserve">
-    <value>Benutzer muss angegeben werden. (Max. 50 Zeichen)</value>
+    <value>User must be specified. (Max. 50 characters)</value>
   </data>
   <data name="Street" xml:space="preserve">
-    <value>Straße</value>
+    <value>Street</value>
   </data>
   <data name="StreetError" xml:space="preserve">
-    <value>Straße muss angegeben werden. (Max. 100 Zeichen)</value>
+    <value>Street must be specified. (Max. 100 characters)</value>
   </data>
   <data name="SubjectPrefix" xml:space="preserve">
-    <value>Bewerbung als</value>
+    <value>Application as</value>
   </data>
   <data name="Surname" xml:space="preserve">
-    <value>Nachname</value>
+    <value>Surname</value>
   </data>
   <data name="SurnameError" xml:space="preserve">
-    <value>Nachname muss angegeben werden. (Max. 50 Zeichen)</value>
+    <value>Surname must be specified. (Max. 50 Zeichen)</value>
   </data>
   <data name="UserSectionTitle" xml:space="preserve">
-    <value>Nutzereinstellungen bearbeiten</value>
+    <value>Modify Usersettings</value>
   </data>
   <data name="UserSettingsTitle" xml:space="preserve">
-    <value>Nutzereinstellungen</value>
+    <value>Usersettings</value>
   </data>
 </root>

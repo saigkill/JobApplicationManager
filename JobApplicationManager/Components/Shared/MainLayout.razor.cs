@@ -17,8 +17,6 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // </copyright>
 
-namespace JobApplicationManager.Components.Shared;
-
 using BootstrapBlazor.Components;
 
 using JobApplicationManager.Resources.Localize;
@@ -27,45 +25,48 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.Extensions.Localization;
 
-/// <summary>
-/// Main layout component for the application.
-/// </summary>
-public sealed partial class MainLayout()
+namespace JobApplicationManager.Components.Shared
 {
-    [Inject]
-    private IStringLocalizer<SharedResource> Localizer { get; set; }
-
-    private bool UseTabSet { get; set; } = true;
-
-    private string Theme { get; set; } = string.Empty;
-
-    private bool IsOpen { get; set; }
-
-    private bool IsFixedHeader { get; set; } = true;
-
-    private bool IsFixedFooter { get; set; } = true;
-
-    private bool IsFullSide { get; set; } = true;
-
-    private bool ShowFooter { get; set; } = true;
-
-    private List<MenuItem>? Menus { get; set; }
-
-    public string UserSettingsTitle { get; set; } = string.Empty;
-
     /// <summary>
-    /// OnInitialized.
+    /// Main layout component for the application.
     /// </summary>
-    protected override void OnInitialized()
+    public sealed partial class MainLayout()
     {
-        base.OnInitialized();
+        [Inject]
+        private IStringLocalizer<SharedResource> Localizer { get; set; } = default!;
 
-        this.UserSettingsTitle = this.Localizer["UserSettingsTitle"];
-        var menus = new List<MenuItem>
-                        {
-                            new() { Text = "Index", Icon = "fa-solid fa-fw fa-flag", Url = "/", Match = NavLinkMatch.All },
-                            new() { Text = this.UserSettingsTitle, Icon = "fa-solid fa-fw fa-user-cog", Url = "/settings" }
-                        };
-        this.Menus = menus;
+        private bool UseTabSet { get; set; } = true;
+
+        private string Theme { get; set; } = string.Empty;
+
+        private bool IsOpen { get; set; }
+
+        private bool IsFixedHeader { get; set; } = true;
+
+        private bool IsFixedFooter { get; set; } = true;
+
+        private bool IsFullSide { get; set; } = true;
+
+        private bool ShowFooter { get; set; } = true;
+
+        private List<MenuItem>? Menus { get; set; }
+
+        public string UserSettingsTitle { get; set; } = string.Empty;
+
+        /// <summary>
+        /// OnInitialized.
+        /// </summary>
+        protected override void OnInitialized()
+        {
+            base.OnInitialized();
+
+            this.UserSettingsTitle = this.Localizer["UserSettingsTitle"];
+            var menus = new List<MenuItem>
+                            {
+                                new() { Text = "Index", Icon = "fa-solid fa-fw fa-flag", Url = "/", Match = NavLinkMatch.All },
+                                new() { Text = this.UserSettingsTitle, Icon = "fa-solid fa-fw fa-user-cog", Url = "/settings" }
+                            };
+            this.Menus = menus;
+        }
     }
 }
