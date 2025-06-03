@@ -31,7 +31,7 @@ public static class Constants
     {
         public const string Company = "Company";
 
-        public const string Jobtitle = "Jobtitle";
+        public const string Jobtitle = "JobTitle";
 
         public const string City = "City";
 

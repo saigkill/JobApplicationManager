@@ -17,26 +17,24 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // </copyright>
 
-using JobApplicationManager.Infrastructure.Helpers;
-
-using NLog.Web;
-
-namespace JobApplicationManager;
-
 using JobApplicationManager.Components;
 using JobApplicationManager.Infrastructure.Data;
 using JobApplicationManager.Infrastructure.Data.Repositories;
+using JobApplicationManager.Infrastructure.Helpers;
 
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 using NLog;
+using NLog.Web;
 
 using Saigkill.Toolbox.Services;
 
 using Syncfusion.Blazor;
 
 using System.Text;
+
+namespace JobApplicationManager;
 
 /// <summary>
 /// Main entry point for the application.
@@ -101,7 +99,8 @@ public static class Program
     private static void AddServices(WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<ICsvService, CsvService>();
-        builder.Services.AddScoped<IUserRepository, UserRepository>();
+        builder.Services.AddScoped<UserRepository>();
+        builder.Services.AddScoped<IUserRepository, UserCacheRepository>();
         builder.Services.AddLocalization();
         builder.Services.AddSyncfusionBlazor();
         builder.Host.UseNLog();
