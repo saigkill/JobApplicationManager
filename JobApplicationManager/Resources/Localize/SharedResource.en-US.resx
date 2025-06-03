@@ -129,6 +129,9 @@
   <data name="BitlyApiKey" xml:space="preserve">
     <value>Bit.ly API Key</value>
   </data>
+  <data name="ButtonSubmit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
   <data name="ChooseEmailOption" xml:space="preserve">
     <value>Choose the Email option</value>
   </data>

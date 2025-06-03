@@ -1,0 +1,16 @@
+﻿@page "/login"
+
+<h3>Login</h3>
+
+@code {
+
+}
+
+<AuthorizeView>
+    <Authorized>
+        <p>Welcome, @context.User.Identity.Name!</p>
+    </Authorized>
+    <NotAuthorized>
+        <p>Please <a href="MicrosoftIdentity/Account/SignIn">log in</a>.</p>
+    </NotAuthorized>
+</AuthorizeView>

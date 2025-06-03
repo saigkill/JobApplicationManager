@@ -27,7 +27,8 @@ public class UserCacheRepository : IUserRepository
         });
     }
 
-    public Task<User?>? GetByEmailAsync(string email)
+    [return: System.Diagnostics.CodeAnalysis.MaybeNull]
+    public Task<User?> GetByEmailAsync(string email)
     {
         string cacheKey = $"user-{email}";
         return _memoryCache.GetOrCreate(cacheKey, entry =>

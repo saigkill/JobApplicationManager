@@ -17,13 +17,16 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // </copyright>
 
+using JobApplicationManager.Application.Models;
 using JobApplicationManager.Components;
 using JobApplicationManager.Infrastructure.Data;
 using JobApplicationManager.Infrastructure.Data.Repositories;
 using JobApplicationManager.Infrastructure.Helpers;
 
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Web;
 
 using NLog;
 using NLog.Web;
@@ -62,7 +65,6 @@ public static class Program
 
         ConfigureSyncfusion(builder);
 
-        // 增加 SignalR 服务数据传输大小限制配置
         builder.Services.Configure<HubOptions>((HubOptions option) => option.MaximumReceiveMessageSize = null);
 
         var app = builder.Build();
@@ -78,6 +80,9 @@ public static class Program
             .AddSupportedCultures(supportedCultures).AddSupportedUICultures(supportedCultures);
 
         app.UseRequestLocalization(localizationOptions);
+
+        app.UseAuthentication();
+        app.UseAuthorization();
 
         app.UseStaticFiles();
 
@@ -103,6 +108,11 @@ public static class Program
         builder.Services.AddScoped<IUserRepository, UserCacheRepository>();
         builder.Services.AddLocalization();
         builder.Services.AddSyncfusionBlazor();
+        builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+            .AddMicrosoftIdentityWebApp(builder.Configuration);
+        builder.Services.AddAuthorization();
+        builder.Services.AddOptions<AppSettings>().Bind(builder.Configuration);
+
         builder.Host.UseNLog();
     }
 

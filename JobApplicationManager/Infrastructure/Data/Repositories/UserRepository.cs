@@ -151,16 +151,24 @@ namespace JobApplicationManager.Infrastructure.Data.Repositories
         /// </summary>
         /// <param name="email">The email.</param>
         /// <returns>A Task representing the asynchronous operation.</returns>
-        public async Task DeleteAsync(string email)
+        public async Task DeleteAsync(string? email)
         {
             try
             {
-                var user = await this.GetByEmailAsync(email);
-                if (user != null)
+                if (string.IsNullOrEmpty(email))
                 {
-                    this._context.Users.Remove(user);
-                    await this._context.SaveChangesAsync();
+                    throw new ArgumentException("Email cannot be null or empty.", nameof(email));
                 }
+                else
+                {
+                    var user = await this.GetByEmailAsync(email);
+                    if (user != null)
+                    {
+                        this._context.Users.Remove(user);
+                        await this._context.SaveChangesAsync();
+                    }
+                }
+
             }
             catch (Exception e)
             {

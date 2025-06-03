@@ -24,14 +24,20 @@
 <h3>@_localizer["UserSettingsTitle"]</h3>
 
 <SfDataForm ID="Usersettings" Width="50%"
-            Model="@UserSettings">
+            Model="@UserSettings" OnSubmit="SetUserSettings">
     <FormValidator>
         <DataAnnotationsValidator></DataAnnotationsValidator>
     </FormValidator>
     <FormItems>
         <FormAutoGenerateItems></FormAutoGenerateItems>
     </FormItems>
+    <SfDropDownList TValue="string" Placeholder="@_localizer["ChooseEmailOption"]" TItem="PickerEmailOptionsModel" @bind-Value="@SmtpServerOption" DataSource="@EmailOptions" Width="300px">
+        <DropDownListFieldSettings Value="Option"></DropDownListFieldSettings>
+    </SfDropDownList>
+    <SfUploader ID="UploadFiles" AllowMultiple=false AutoUpload=false>
+        <UploaderEvents ValueChange="@OnChange" OnClear="@OnClearHandler"></UploaderEvents>
+    </SfUploader>
     <FormButtons>
-        <SfButton typeof="submit">Register</SfButton>
+        <SfButton typeof="submit">@_localizer["ButtonSubmit"]</SfButton>
     </FormButtons>
 </SfDataForm>

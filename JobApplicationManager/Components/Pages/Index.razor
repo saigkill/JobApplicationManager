@@ -16,6 +16,15 @@
 @using Microsoft.JSInterop
 @using TModel = System.Object
 @attribute [TabItemOption(Text = "Index", Closable = false)]
+@inject NavigationManager NavManager
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        NavManager.NavigateTo("/login");
+    }
+}
 
 <PageTitle>Index</PageTitle>
 

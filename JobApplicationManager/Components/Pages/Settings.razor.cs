@@ -20,6 +20,7 @@
 using JobApplicationManager.Components.Models;
 using JobApplicationManager.Infrastructure.Data.Models;
 using JobApplicationManager.Infrastructure.Data.Repositories;
+using JobApplicationManager.Infrastructure.Models;
 using JobApplicationManager.Resources.Localize;
 
 using Microsoft.AspNetCore.Components;
@@ -53,6 +54,9 @@ namespace JobApplicationManager.Components.Pages
         [Inject]
         private ILogger<Settings> _logger { get; set; } = default!;
 
+        protected string SmtpServerOption { get; set; } = "Auto";
+        protected List<PickerEmailOptionsModel> EmailOptions { get; set; } = new PickerEmailOptionsModel().GetOptions()!;
+
         protected SettingsModel UserSettings { get; set; } = new SettingsModel()
         {
             FirstName = "Max",
@@ -76,9 +80,9 @@ namespace JobApplicationManager.Components.Pages
         /// On initialized as an asynchronous operation.
         /// </summary>
         /// <returns>A Task representing the asynchronous operation.</returns>
-        protected override async Task OnInitializedAsync()
-        {
-        }
+        //protected override async Task OnInitializedAsync()
+        //{
+        //}
 
         /// <summary>
         /// Sets the user settings.
@@ -105,6 +109,7 @@ namespace JobApplicationManager.Components.Pages
             };
             await _repository.AddAsync(model);
             _logger.LogInformation("Found new User data. Added it to Database");
+            //var user = await GraphClient.Me.Request().GetAsync();
         }
 
         /// <summary>
@@ -127,6 +132,11 @@ namespace JobApplicationManager.Components.Pages
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        private void OnClearHandler(ClearingEventArgs obj)
+        {
+            UserSettings.LatexPath = string.Empty;
         }
     }
 }

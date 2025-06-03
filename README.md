@@ -12,7 +12,8 @@ JobApplicationManager is released under the MIT License, see the file `LICENSE.m
 |-----|-------------------------------------------------------------------------------------|
 |Code  | (https://dev.azure.com/saigkill/JobApplicationManager/_git/JobApplicationManager) |
 |Docs |  |
-|Bugs & feature requests  | (https://dev.azure.com/saigkill/JobApplicationManager/_workitems/recentlyupdated/) |
+|Bugs & feature requests Azure  | (https://dev.azure.com/saigkill/JobApplicationManager/_workitems/recentlyupdated/) |
+|Bugs & feature requests Github | (https://github.com/saigkill/JobApplicationManager/issues) |
 
 | What | Status |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -21,7 +22,6 @@ JobApplicationManager is released under the MIT License, see the file `LICENSE.m
 |Continuous integration Prod | [![Build status](https://dev.azure.com/saigkill/JobApplicationManager/_apis/build/status/JobApplicationManager-ASP.NET-CI-prod)](https://dev.azure.com/saigkill/JobApplicationManager/_build/latest?definitionId=70) |
 |Open Issues Github | ![GitHub issues](https://img.shields.io/github/issues/saigkill/JobApplicationManager) |
 |Open Issues Azure | [![Board Status](https://dev.azure.com/saigkill/ef7cd0ee-17fd-427b-b557-1176e924a6b3/d2fdc8f2-c55d-4542-994c-6f4d3ccb456f/_apis/work/boardbadge/f68183c0-4457-42cb-b8ff-aa359e13e302)](https://dev.azure.com/saigkill/ef7cd0ee-17fd-427b-b557-1176e924a6b3/_boards/board/t/d2fdc8f2-c55d-4542-994c-6f4d3ccb456f/Stories/)|
-|Conventional commits | [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org) |
 
 ## FEATURES
 
