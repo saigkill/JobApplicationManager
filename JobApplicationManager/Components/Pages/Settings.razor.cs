@@ -18,8 +18,8 @@
 // </copyright>
 
 using JobApplicationManager.Components.Models;
+using JobApplicationManager.Domain.Entities;
 using JobApplicationManager.Domain.Interfaces;
-using JobApplicationManager.Infrastructure.Data.Models;
 using JobApplicationManager.Infrastructure.Models;
 using JobApplicationManager.Resources.Localize;
 

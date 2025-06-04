@@ -1,4 +1,4 @@
-﻿// <copyright file="IUserRepository.cs" company="Sascha Manns">
+﻿// <copyright file="ApplicationConfigModel.cs" company="Sascha Manns">
 // Copyright (c) 2025 Sascha Manns.
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 // associated documentation files (the “Software”), to deal in the Software without restriction, including
@@ -17,22 +17,16 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // </copyright>
 
-using JobApplicationManager.Domain.Entities;
+namespace JobApplicationManager.Domain.Models;
 
-namespace JobApplicationManager.Domain.Interfaces;
-
-/// <summary>
-/// Interface IUserRepository
-/// </summary>
-public interface IUserRepository
+public class ApplicationConfigModel
 {
-    Task<IEnumerable<User>>? GetAllAsync();
-
-    Task<User?>? GetByEmailAsync(string email);
-
-    Task AddAsync(User user);
-
-    Task UpdateAsync(User user);
-
-    Task DeleteAsync(string email);
+    public string JobTitle { get; set; }
+    public string Company { get; set; }
+    public string Contact { get; set; }
+    public string Street { get; set; }
+    public string City { get; set; }
+    public string Salutation { get; set; }
+    public string Subject { get; set; }
+    public string Address { get; set; }
 }

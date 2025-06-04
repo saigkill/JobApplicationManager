@@ -1,4 +1,4 @@
-﻿// <copyright file="IUserRepository.cs" company="Sascha Manns">
+﻿// <copyright file="IEmailServer.cs" company="Sascha Manns">
 // Copyright (c) 2025 Sascha Manns.
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 // associated documentation files (the “Software”), to deal in the Software without restriction, including
@@ -17,22 +17,19 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // </copyright>
 
-using JobApplicationManager.Domain.Entities;
+using MimeKit;
 
-namespace JobApplicationManager.Domain.Interfaces;
+namespace JobApplicationManager.Infrastructure.Services;
 
 /// <summary>
-/// Interface IUserRepository
+/// Interface IEmailService
 /// </summary>
-public interface IUserRepository
+public interface IJamEmailService
 {
-    Task<IEnumerable<User>>? GetAllAsync();
-
-    Task<User?>? GetByEmailAsync(string email);
-
-    Task AddAsync(User user);
-
-    Task UpdateAsync(User user);
-
-    Task DeleteAsync(string email);
+    /// <summary>
+    /// Sends the message asynchronous.
+    /// </summary>
+    /// <param name="message">The message.</param>
+    /// <returns>Task.</returns>
+    Task SendMessageAsync(MimeMessage message);
 }

@@ -1,4 +1,4 @@
-﻿// <copyright file="IUserRepository.cs" company="Sascha Manns">
+﻿// <copyright file="DomainEventsDispatcher.cs" company="Sascha Manns">
 // Copyright (c) 2025 Sascha Manns.
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 // associated documentation files (the “Software”), to deal in the Software without restriction, including
@@ -17,22 +17,26 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // </copyright>
 
-using JobApplicationManager.Domain.Entities;
+using JobApplicationManager.Abstractions;
+using JobApplicationManager.Domain.Interfaces;
 
-namespace JobApplicationManager.Domain.Interfaces;
+namespace JobApplicationManager.Infrastructure.Eventdispatcher;
 
-/// <summary>
-/// Interface IUserRepository
-/// </summary>
-public interface IUserRepository
+public class DomainEventsDispatcher : IDomainEventsDispatcher
 {
-    Task<IEnumerable<User>>? GetAllAsync();
+    private readonly IServiceProvider _serviceProvider;
 
-    Task<User?>? GetByEmailAsync(string email);
+    public DomainEventsDispatcher(IServiceProvider serviceProvider)
+    {
+        _serviceProvider = serviceProvider;
+    }
 
-    Task AddAsync(User user);
-
-    Task UpdateAsync(User user);
-
-    Task DeleteAsync(string email);
+    public async Task DispatchAsync<TEvent>(TEvent domainEvent) where TEvent : IDomainEvent
+    {
+        var handlers = _serviceProvider.GetServices<IDomainEventHandler<TEvent>>();
+        foreach (var handler in handlers)
+        {
+            await handler.HandleAsync(domainEvent);
+        }
+    }
 }

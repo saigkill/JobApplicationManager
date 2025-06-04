@@ -1,4 +1,4 @@
-﻿// <copyright file="IUserRepository.cs" company="Sascha Manns">
+﻿// <copyright file="IDomainEventHandler.cs" company="Sascha Manns">
 // Copyright (c) 2025 Sascha Manns.
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 // associated documentation files (the “Software”), to deal in the Software without restriction, including
@@ -17,22 +17,11 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // </copyright>
 
-using JobApplicationManager.Domain.Entities;
+using JobApplicationManager.Domain.Interfaces;
 
-namespace JobApplicationManager.Domain.Interfaces;
+namespace JobApplicationManager.Abstractions;
 
-/// <summary>
-/// Interface IUserRepository
-/// </summary>
-public interface IUserRepository
+public interface IDomainEventHandler<TEvent> where TEvent : IDomainEvent
 {
-    Task<IEnumerable<User>>? GetAllAsync();
-
-    Task<User?>? GetByEmailAsync(string email);
-
-    Task AddAsync(User user);
-
-    Task UpdateAsync(User user);
-
-    Task DeleteAsync(string email);
+    Task HandleAsync(TEvent domainEvent);
 }

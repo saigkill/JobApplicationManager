@@ -57,11 +57,10 @@
 
 	<ItemGroup>
 		<Folder Include="Application\DTOs\" />
-		<Folder Include="Application\EventHandlers\" />
 		<Folder Include="Application\Interfaces\" />
 		<Folder Include="Application\Validation\" />
 		<Folder Include="Application\UseCases\" />
-		<Folder Include="Domain\Events\" />
+		<Folder Include="Infrastructure\Eventhandlers\" />
 	</ItemGroup>
 
 	<ItemGroup>

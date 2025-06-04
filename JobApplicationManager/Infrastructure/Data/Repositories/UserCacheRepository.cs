@@ -1,5 +1,5 @@
-﻿using JobApplicationManager.Domain.Interfaces;
-using JobApplicationManager.Infrastructure.Data.Models;
+﻿using JobApplicationManager.Domain.Entities;
+using JobApplicationManager.Domain.Interfaces;
 
 using Microsoft.Extensions.Caching.Memory;
 

@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace JobApplicationManager.Infrastructure.Data.Models;
+namespace JobApplicationManager.Domain.Entities;
 
 public partial class Company
 {
@@ -17,7 +17,9 @@ public partial class Company
 
     public string City { get; set; }
 
-    public virtual ICollection<Contact> Contacts { get; set; } = new List<Contact>();
+    public string UserGuid { get; set; }
 
     public virtual ICollection<JobApplication> JobApplications { get; set; } = new List<JobApplication>();
+
+    public virtual User User { get; set; }
 }

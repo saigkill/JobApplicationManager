@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace JobApplicationManager.Infrastructure.Data.Models;
+namespace JobApplicationManager.Domain.Entities;
 
 public partial class User
 {
@@ -38,4 +38,12 @@ public partial class User
     public string SmtpServerOption { get; set; }
 
     public string LatexPath { get; set; }
+
+    public string UserGuid { get; set; }
+
+    public virtual ICollection<Company> Companies { get; set; } = new List<Company>();
+
+    public virtual ICollection<Contact> Contacts { get; set; } = new List<Contact>();
+
+    public virtual ICollection<JobApplication> JobApplications { get; set; } = new List<JobApplication>();
 }

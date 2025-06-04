@@ -210,6 +210,12 @@ Sincerely
   <data name="PostcodeError" xml:space="preserve">
     <value>Postcode must be specified (Max. 10 characters)</value>
   </data>
+  <data name="ReminderSubject" xml:space="preserve">
+    <value>Reminder: Your application as</value>
+  </data>
+  <data name="ReminderText" xml:space="preserve">
+    <value>Dear {1},\n\nThis is a reminder. You either sent your application to {2} for position {3} 14 days ago, Check whether you already have an answer. If not, you can write the contact person under {4}.\n\nBest regards,\nYour JobApplication Manager.</value>
+  </data>
   <data name="SalutationFemale" xml:space="preserve">
     <value>Dear Mrs.</value>
   </data>

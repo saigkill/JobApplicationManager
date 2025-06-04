@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace JobApplicationManager.Infrastructure.Data.Models;
+namespace JobApplicationManager.Domain.Entities;
 
 public partial class JobApplication
 {
@@ -15,5 +15,23 @@ public partial class JobApplication
 
     public int? CompanyId { get; set; }
 
+    public string UserGuid { get; set; }
+
+    public DateTime EmailSent { get; set; }
+
+    public string InterviewQuestions { get; set; }
+
+    public DateTime? FirstInterview { get; set; }
+
+    public DateTime? SecondInterview { get; set; }
+
+    public DateTime? ThirdInterview { get; set; }
+
+    public string InterviewNotes { get; set; }
+
+    public string Status { get; set; }
+
     public virtual Company Company { get; set; }
+
+    public virtual User User { get; set; }
 }

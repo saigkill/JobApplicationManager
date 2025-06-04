@@ -17,8 +17,8 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // </copyright>
 
+using JobApplicationManager.Domain.Entities;
 using JobApplicationManager.Domain.Interfaces;
-using JobApplicationManager.Infrastructure.Data.Models;
 using JobApplicationManager.Infrastructure.Exceptions;
 
 using Microsoft.EntityFrameworkCore;

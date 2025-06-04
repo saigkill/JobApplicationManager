@@ -17,12 +17,17 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // </copyright>
 
+using JobApplicationManager.Abstractions;
+using JobApplicationManager.Application.EventHandlers;
 using JobApplicationManager.Application.Models;
 using JobApplicationManager.Components;
+using JobApplicationManager.Domain.Events;
 using JobApplicationManager.Domain.Interfaces;
 using JobApplicationManager.Infrastructure.Data;
 using JobApplicationManager.Infrastructure.Data.Repositories;
+using JobApplicationManager.Infrastructure.Eventdispatcher;
 using JobApplicationManager.Infrastructure.Helpers;
+using JobApplicationManager.Infrastructure.Services;
 
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.SignalR;
@@ -38,11 +43,10 @@ using Syncfusion.Blazor;
 
 using System.Text;
 
+using JamEmailService = JobApplicationManager.Infrastructure.Services.JamEmailService;
+
 namespace JobApplicationManager;
 
-/// <summary>
-/// Main entry point for the application.
-/// </summary>
 public static class Program
 {
     private static void Main(string[] args)
@@ -105,6 +109,7 @@ public static class Program
     private static void AddServices(WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<ICsvService, CsvService>();
+        builder.Services.AddScoped<IJamEmailService, JamEmailService>();
         builder.Services.AddScoped<UserRepository>();
         builder.Services.AddScoped<IUserRepository, UserCacheRepository>();
         builder.Services.AddLocalization();
@@ -113,6 +118,9 @@ public static class Program
             .AddMicrosoftIdentityWebApp(builder.Configuration);
         builder.Services.AddAuthorization();
         builder.Services.AddOptions<AppSettings>().Bind(builder.Configuration);
+        builder.Services.AddScoped<IDomainEventsDispatcher, DomainEventsDispatcher>();
+        builder.Services.AddScoped<IDomainEventHandler<ApplicationDataReadyEvent>, BuildLatexDocumentsHandler>();
+        builder.Services.AddHostedService<ReminderService>();
 
         builder.Host.UseNLog();
     }
