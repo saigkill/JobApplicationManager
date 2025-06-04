@@ -66,7 +66,7 @@ public class ReminderService : BackgroundService
 
                 foreach (var application in overdueInterviews)
                 {
-                    var contact = await dbContext.Contacts.Where(c => c.CompanyId == application.CompanyId).FirstOrDefaultAsync();
+                    var contact = await dbContext.Contacts.Where(c => c.CompanyId == application.CompanyId).FirstOrDefaultAsync(cancellationToken: stoppingToken);
                     var message = new MimeMessage();
                     message.From.Add(new MailboxAddress("Job Application Manager Reminder", application.User.Email));
                     message.To.Add(new MailboxAddress(application.User.Firstname + " " + application.User.Surname,
