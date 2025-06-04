@@ -35,13 +35,6 @@ using Saigkill.Toolbox.Services;
 /// appending new entries to an existing CSV file.</remarks>
 public class CsvExport(ICsvService csvService, IStringLocalizer localizer)
 {
-    /// <summary>
-    /// Appends a new job application entry to the CSV file.
-    /// </summary>
-    /// <param name="company"></param>
-    /// <param name="jobtitle"></param>
-    /// <param name="city"></param>
-    /// <param name="joburl"></param>
     public void WriteCsv(string company, string jobtitle, string city, string joburl)
     {
         var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);

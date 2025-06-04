@@ -18,8 +18,8 @@
 // </copyright>
 
 using JobApplicationManager.Components.Models;
-using JobApplicationManager.Infrastructure.Data.Models;
-using JobApplicationManager.Infrastructure.Data.Repositories;
+using JobApplicationManager.Domain.Entities;
+using JobApplicationManager.Domain.Interfaces;
 using JobApplicationManager.Infrastructure.Models;
 using JobApplicationManager.Resources.Localize;
 
@@ -38,34 +38,27 @@ namespace JobApplicationManager.Components.Pages
     public partial class Settings : ComponentBase
     {
         [Inject]
-        private IUserRepository _repository { get; set; } = default!;
+        private IUserRepository Repository { get; set; } = default!;
 
-        /// <summary>
-        /// Gets or sets the localizer.
-        /// </summary>
-        /// <value>The localizer.</value>
         [Inject]
-        private IStringLocalizer<SharedResource> _localizer { get; set; } = default!;
+        private IStringLocalizer<SharedResource> Localizer { get; set; } = default!;
 
-        /// <summary>
-        /// Gets or sets the logger.
-        /// </summary>
-        /// <value>The logger.</value>
         [Inject]
-        private ILogger<Settings> _logger { get; set; } = default!;
+        private ILogger<Settings> Logger { get; set; } = default!;
 
         protected string SmtpServerOption { get; set; } = "Auto";
+
         protected List<PickerEmailOptionsModel> EmailOptions { get; set; } = new PickerEmailOptionsModel().GetOptions()!;
 
         protected SettingsModel UserSettings { get; set; } = new SettingsModel()
         {
             FirstName = "Max",
-            Surname = "Mustermann",
-            Street = "Musterstraße 1",
-            City = "Musterstadt",
+            Surname = "Example",
+            Street = "Examplestreet 1",
+            City = "Examplecity",
             Postcode = "12345",
             Phone = "0123456789",
-            Email = "max.mustermann@example.com",
+            Email = "max.example@example.com",
             Homepage = "https://www.example.com",
             BitLyApiKey = "", // No default value for Bitly API Key, it triggers a CI/CD Warning.
             LatexPath = "/usr/local/texlive/2023/bin/x86_64-linux",
@@ -107,8 +100,8 @@ namespace JobApplicationManager.Components.Pages
                 SmtpPort = UserSettings.SmtpPort,
                 SmtpServerOption = UserSettings.SmtpServerOption,
             };
-            await _repository.AddAsync(model);
-            _logger.LogInformation("Found new User data. Added it to Database");
+            await Repository.AddAsync(model);
+            Logger.LogInformation("Found new User data. Added it to Database");
             //var user = await GraphClient.Me.Request().GetAsync();
         }
 

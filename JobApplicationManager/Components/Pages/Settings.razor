@@ -21,7 +21,7 @@
 @using Syncfusion.Blazor.Buttons
 @layout MainLayout
 
-<h3>@_localizer["UserSettingsTitle"]</h3>
+<h3>@Localizer["UserSettingsTitle"]</h3>
 
 <SfDataForm ID="Usersettings" Width="50%"
             Model="@UserSettings" OnSubmit="SetUserSettings">
@@ -31,13 +31,13 @@
     <FormItems>
         <FormAutoGenerateItems></FormAutoGenerateItems>
     </FormItems>
-    <SfDropDownList TValue="string" Placeholder="@_localizer["ChooseEmailOption"]" TItem="PickerEmailOptionsModel" @bind-Value="@SmtpServerOption" DataSource="@EmailOptions" Width="300px">
+    <SfDropDownList TValue="string" Placeholder="@Localizer["ChooseEmailOption"]" TItem="PickerEmailOptionsModel" @bind-Value="@SmtpServerOption" DataSource="@EmailOptions" Width="300px">
         <DropDownListFieldSettings Value="Option"></DropDownListFieldSettings>
     </SfDropDownList>
     <SfUploader ID="UploadFiles" AllowMultiple=false AutoUpload=false>
         <UploaderEvents ValueChange="@OnChange" OnClear="@OnClearHandler"></UploaderEvents>
     </SfUploader>
     <FormButtons>
-        <SfButton typeof="submit">@_localizer["ButtonSubmit"]</SfButton>
+        <SfButton typeof="submit">@Localizer["ButtonSubmit"]</SfButton>
     </FormButtons>
 </SfDataForm>

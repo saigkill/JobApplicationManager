@@ -19,18 +19,6 @@
 
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
-<CascadingAuthenticationState>
-    <Router AppAssembly="@typeof(App).Assembly">
-        <Found Context="routeData">
-            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
-        </Found>
-        <NotFound>
-            <LayoutView Layout="@typeof(MainLayout)">
-                <p>Sorry, there's nothing at this address.</p>
-            </LayoutView>
-        </NotFound>
-    </Router>
-</CascadingAuthenticationState>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -55,7 +43,19 @@
 </head>
 
 <body>
-    <Routes @rendermode="new InteractiveServerRenderMode(false)" />
+    <CascadingAuthenticationState>
+        <Router AppAssembly="@typeof(App).Assembly">
+            <Found Context="routeData">
+                <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            </Found>
+            <NotFound>
+                <LayoutView Layout="@typeof(MainLayout)">
+                    <p>Sorry, there's nothing at this address.</p>
+                </LayoutView>
+            </NotFound>
+        </Router>
+        @* <Routes @rendermode="new InteractiveServerRenderMode(false)" /> *@
+    </CascadingAuthenticationState>
 
     <ReconnectorOutlet ReconnectInterval="5000" @rendermode="new InteractiveServerRenderMode(false)" />
 

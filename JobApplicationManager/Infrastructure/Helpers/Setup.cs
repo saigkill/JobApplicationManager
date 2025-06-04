@@ -10,9 +10,6 @@ public static class Setup
 
     private static readonly string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-    /// <summary>
-    /// This method copies by the first run a couple of files to the AppData directory.
-    /// </summary>
     public static void CheckDocumentsPath()
     {
         string jamDocsPath = Path.Combine(AppDataPath, "JobApplicationManager", "Letter_of_Application", "letter_of_application.tex");
@@ -24,9 +21,6 @@ public static class Setup
         }
     }
 
-    /// <summary>
-    /// This method just creates the directory structure, what lcv expected.
-    /// </summary>
     private static void CreateDocumentsPath()
     {
         string[] lcvDocsPath = {Path.Combine(AppDataPath, "JobApplicationManager", "Letter_of_Application"), Path.Combine(AppDataPath, "JobApplicationManager", "Curriculum_Vitae"), Path.Combine(AppDataPath, "JobApplicationManager", "Pictures"),
@@ -48,9 +42,6 @@ public static class Setup
         _logger.Info("Created Path for Documents");
     }
 
-    /// <summary>
-    /// This method copies a couple of needed files to the AppData directory.
-    /// </summary>
     private static void CopyDocuments()
     {
         string currentDir = AppDomain.CurrentDomain.BaseDirectory;
@@ -95,7 +86,6 @@ public static class Setup
         {
             foreach (string pic in picList)
             {
-                // Remove path from the file name.
                 string fName = pic.Substring(srcDir.Length + 1);
 
                 // Use the Path.Combine method to safely append the file name to the path.
@@ -126,40 +116,13 @@ public static class Setup
         _logger.Info("Copied default Bibliography");
     }
 
-    /// <summary>
-    /// Adds a temp folder
-    /// </summary>
-    public static void CheckTmpPath()
-    {
-        string myTmpDir = Path.Combine(Path.GetTempPath(), "JobApplicationManager");
-
-        try
-        {
-            Directory.SetCurrentDirectory(myTmpDir);
-        }
-        catch
-        {
-            Directory.CreateDirectory(myTmpDir);
-        }
-        _logger.Info("Using {0} as TempPath", myTmpDir);
-    }
-
-    /// <summary>
-    /// This method cleans up the temporary directory.
-    /// </summary>
     public static void Cleanup()
     {
         string myTmpDir = Path.Combine(Path.GetTempPath(), "JobApplicationManager");
-        Directory.SetCurrentDirectory(myTmpDir);
-
-        string[] delete = Directory.GetFiles(myTmpDir);
 
         try
         {
-            foreach (string del in delete)
-            {
-                File.Delete(del);
-            }
+            Directory.Delete(myTmpDir);
         }
         catch (Exception e)
         {

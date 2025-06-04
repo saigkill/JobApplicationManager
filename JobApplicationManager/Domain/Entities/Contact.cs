@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace JobApplicationManager.Infrastructure.Data.Models;
+namespace JobApplicationManager.Domain.Entities;
 
 public partial class Contact
 {
@@ -19,5 +19,7 @@ public partial class Contact
 
     public int? CompanyId { get; set; }
 
-    public virtual Company Company { get; set; }
+    public string UserGuid { get; set; }
+
+    public virtual User User { get; set; }
 }

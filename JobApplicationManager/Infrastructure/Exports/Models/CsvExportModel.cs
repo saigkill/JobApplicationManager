@@ -23,9 +23,6 @@ using CsvHelper.Configuration.Attributes;
 
 using JobApplicationManager.Infrastructure.Exports;
 
-/// <summary>
-/// Class JobApplicationModel.
-/// </summary>
 public class CsvExportModel
 {
     [Name(Constants.CsvHeaders.Company)]

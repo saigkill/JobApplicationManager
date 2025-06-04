@@ -53,9 +53,6 @@ namespace JobApplicationManager.Components.Shared
 
         public string UserSettingsTitle { get; set; } = string.Empty;
 
-        /// <summary>
-        /// OnInitialized.
-        /// </summary>
         protected override void OnInitialized()
         {
             base.OnInitialized();
@@ -64,6 +61,7 @@ namespace JobApplicationManager.Components.Shared
             var menus = new List<MenuItem>
                             {
                                 new() { Text = "Index", Icon = "fa-solid fa-fw fa-flag", Url = "/", Match = NavLinkMatch.All },
+                                new() { Text = "Test", Icon = "fa-solid fa-fw fa-flag", Url = "/test"},
                                 new() { Text = this.UserSettingsTitle, Icon = "fa-solid fa-fw fa-user-cog", Url = "/settings" }
                             };
             this.Menus = menus;

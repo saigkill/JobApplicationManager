@@ -2,7 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using JobApplicationManager.Infrastructure.Data.Models;
+using JobApplicationManager.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace JobApplicationManager.Infrastructure.Data;
@@ -34,6 +34,15 @@ public partial class JobApplicationManagerContext : DbContext
                 .HasMaxLength(50);
             entity.Property(e => e.Postcode).HasMaxLength(10);
             entity.Property(e => e.Street).HasMaxLength(100);
+            entity.Property(e => e.UserGuid)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            entity.HasOne(d => d.User).WithMany(p => p.Companies)
+                .HasPrincipalKey(p => p.UserGuid)
+                .HasForeignKey(d => d.UserGuid)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Company_User");
         });
 
         modelBuilder.Entity<Contact>(entity =>
@@ -44,9 +53,14 @@ public partial class JobApplicationManagerContext : DbContext
             entity.Property(e => e.Firstname).HasMaxLength(50);
             entity.Property(e => e.Phone).HasMaxLength(50);
             entity.Property(e => e.Surname).HasMaxLength(50);
+            entity.Property(e => e.UserGuid)
+                .IsRequired()
+                .HasMaxLength(50);
 
-            entity.HasOne(d => d.Company).WithMany(p => p.Contacts)
-                .HasForeignKey(d => d.CompanyId)
+            entity.HasOne(d => d.User).WithMany(p => p.Contacts)
+                .HasPrincipalKey(p => p.UserGuid)
+                .HasForeignKey(d => d.UserGuid)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Contact_Company");
         });
 
@@ -55,21 +69,43 @@ public partial class JobApplicationManagerContext : DbContext
             entity.ToTable("JobApplication");
 
             entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
+            entity.Property(e => e.EmailSent).HasColumnType("datetime");
+            entity.Property(e => e.FirstInterview).HasColumnType("datetime");
+            entity.Property(e => e.InterviewNotes)
+                .HasMaxLength(400)
+                .IsUnicode(false);
+            entity.Property(e => e.InterviewQuestions)
+                .HasMaxLength(400)
+                .IsUnicode(false);
             entity.Property(e => e.Jobtitle)
                 .IsRequired()
                 .HasMaxLength(50);
+            entity.Property(e => e.SecondInterview).HasColumnType("datetime");
+            entity.Property(e => e.Status)
+                .HasMaxLength(10)
+                .IsUnicode(false);
+            entity.Property(e => e.ThirdInterview).HasColumnType("datetime");
             entity.Property(e => e.Url).HasMaxLength(100);
+            entity.Property(e => e.UserGuid)
+                .IsRequired()
+                .HasMaxLength(50);
 
             entity.HasOne(d => d.Company).WithMany(p => p.JobApplications)
                 .HasForeignKey(d => d.CompanyId)
                 .HasConstraintName("FK_JobApplication_Company");
+
+            entity.HasOne(d => d.User).WithMany(p => p.JobApplications)
+                .HasPrincipalKey(p => p.UserGuid)
+                .HasForeignKey(d => d.UserGuid)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_JobApplication_User");
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("User");
+            entity.ToTable("User");
+
+            entity.HasIndex(e => e.UserGuid, "IX_User").IsUnique();
 
             entity.Property(e => e.BitlyApiKey).HasMaxLength(50);
             entity.Property(e => e.City)
@@ -82,7 +118,6 @@ public partial class JobApplicationManagerContext : DbContext
                 .IsRequired()
                 .HasMaxLength(50);
             entity.Property(e => e.Homepage).HasMaxLength(255);
-            entity.Property(e => e.Id).ValueGeneratedOnAdd();
             entity.Property(e => e.LatexPath)
                 .IsRequired()
                 .HasMaxLength(200);
@@ -108,6 +143,9 @@ public partial class JobApplicationManagerContext : DbContext
                 .IsRequired()
                 .HasMaxLength(100);
             entity.Property(e => e.Surname)
+                .IsRequired()
+                .HasMaxLength(50);
+            entity.Property(e => e.UserGuid)
                 .IsRequired()
                 .HasMaxLength(50);
         });

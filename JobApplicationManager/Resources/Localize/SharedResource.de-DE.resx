@@ -210,6 +210,12 @@ Mit freundlichem Gruß
   <data name="PostcodeError" xml:space="preserve">
     <value>Postleitzahl muss anegegeben werden. (Max. 10 Zeichen)</value>
   </data>
+  <data name="ReminderSubject" xml:space="preserve">
+    <value>Erinnerung: Deine Bewerbung als</value>
+  </data>
+  <data name="ReminderText" xml:space="preserve">
+    <value>Lieber {1},\n\nDies ist eine Erinnerung. Du hast entweder vor 14 Tagen deine Bewerbung zu {2} für die Position {3} verschickt, prüfe ob Du bereits eine Antwort hast. Falls nicht, kannst du den Ansprechpartner unter {4} anschreiben.\n\nViele Grüße,\nDein JobApplication Manager.</value>
+  </data>
   <data name="SalutationFemale" xml:space="preserve">
     <value>Sehr geehrte Frau</value>
   </data>
