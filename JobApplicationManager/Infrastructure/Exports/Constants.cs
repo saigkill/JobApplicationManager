@@ -24,9 +24,6 @@ namespace JobApplicationManager.Infrastructure.Exports;
 /// </summary>
 public static class Constants
 {
-    /// <summary>
-    /// Class CsvHeaders.
-    /// </summary>
     public class CsvHeaders
     {
         public const string Company = "Company";

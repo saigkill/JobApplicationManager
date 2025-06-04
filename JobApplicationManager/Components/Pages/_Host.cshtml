@@ -1,0 +1,23 @@
+﻿@page "/"
+@using JobApplicationManager.Components
+@namespace JobApplicationManager.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>JobApplicationManager</title>
+    <base href="~/" />
+    <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+    <app>
+        @(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))
+    </app>
+    <script src="_framework/blazor.server.js"></script>
+</body>
+</html>

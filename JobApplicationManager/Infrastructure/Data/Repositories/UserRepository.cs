@@ -17,6 +17,7 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // </copyright>
 
+using JobApplicationManager.Domain.Interfaces;
 using JobApplicationManager.Infrastructure.Data.Models;
 using JobApplicationManager.Infrastructure.Exceptions;
 
@@ -27,31 +28,12 @@ using System.Diagnostics.CodeAnalysis;
 namespace JobApplicationManager.Infrastructure.Data.Repositories
 {
     /// <summary>
-    /// Interface IUserRepository
-    /// </summary>
-    public interface IUserRepository
-    {
-        Task<IEnumerable<User>>? GetAllAsync();
-
-        Task<User?>? GetByEmailAsync(string email);
-
-        Task AddAsync(User user);
-
-        Task UpdateAsync(User user);
-
-        Task DeleteAsync(string email);
-    }
-
-    /// <summary>
     /// Class UserRepository.
     /// Implements the <see cref="IUserRepository" />
     /// </summary>
     /// <seealso cref="IUserRepository" />
     public class UserRepository : IUserRepository
     {
-        /// <summary>
-        /// The context
-        /// </summary>
         [SuppressMessage(
             "StyleCop.CSharp.NamingRules",
             "SA1309:FieldNamesMustNotBeginWithUnderscore",
@@ -60,21 +42,12 @@ namespace JobApplicationManager.Infrastructure.Data.Repositories
 
         private readonly ILogger<UserRepository> _logger;
 
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UserRepository"/> class.
-        /// </summary>
-        /// <param name="context">The context.</param>
         public UserRepository(JobApplicationManagerContext context, ILogger<UserRepository> logger)
         {
             this._context = context;
             this._logger = logger;
         }
 
-        /// <summary>
-        /// Get all as an asynchronous operation.
-        /// </summary>
-        /// <returns>A Task&lt;IEnumerable`1&gt; representing the asynchronous operation.</returns>
         public async Task<IEnumerable<User>>? GetAllAsync()
         {
             try
@@ -89,11 +62,6 @@ namespace JobApplicationManager.Infrastructure.Data.Repositories
             }
         }
 
-        /// <summary>
-        /// Get by email as an asynchronous operation.
-        /// </summary>
-        /// <param name="email">The email.</param>
-        /// <returns>A Task&lt;User&gt; representing the asynchronous operation.</returns>
         public async Task<User?>? GetByEmailAsync(string email)
         {
             try
@@ -108,11 +76,6 @@ namespace JobApplicationManager.Infrastructure.Data.Repositories
 
         }
 
-        /// <summary>
-        /// Add as an asynchronous operation.
-        /// </summary>
-        /// <param name="user">The user.</param>
-        /// <returns>A Task representing the asynchronous operation.</returns>
         public async Task AddAsync(User user)
         {
             try
@@ -127,11 +90,6 @@ namespace JobApplicationManager.Infrastructure.Data.Repositories
             }
         }
 
-        /// <summary>
-        /// Update as an asynchronous operation.
-        /// </summary>
-        /// <param name="user">The user.</param>
-        /// <returns>A Task representing the asynchronous operation.</returns>
         public async Task UpdateAsync(User user)
         {
             try
@@ -146,11 +104,6 @@ namespace JobApplicationManager.Infrastructure.Data.Repositories
             }
         }
 
-        /// <summary>
-        /// Delete as an asynchronous operation.
-        /// </summary>
-        /// <param name="email">The email.</param>
-        /// <returns>A Task representing the asynchronous operation.</returns>
         public async Task DeleteAsync(string? email)
         {
             try

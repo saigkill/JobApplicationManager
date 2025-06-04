@@ -10,14 +10,11 @@ namespace JobApplicationManager.Domain.LaTEX;
 /// </summary> 
 public static class Build
 {
-    private static readonly string tmpDir = Saigkill.Toolbox.Generators.TemporaryDirectory.GetTemporaryDirectory();
+    private static readonly string TmpDir = Saigkill.Toolbox.Generators.TemporaryDirectory.GetTemporaryDirectory();
 
-    /// <summary>
-    /// This method copies the needed LaTEX documents to the temporary directory. It doesn't return anything.
-    /// </summary>
     public static void PrepareBuild()
     {
-        string mytmpDir = Path.Combine(tmpDir, "JobApplicationManager");
+        string mytmpDir = Path.Combine(TmpDir, "JobApplicationManager");
         //Directory.CreateDirectory(mytmpDir);
         string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         string srcPath = Path.Combine(appDataPath, "JobApplicationManager");
@@ -36,26 +33,12 @@ public static class Build
         File.Copy(Path.Combine(srcPath, "personal_data.tex"), Path.Combine(mytmpDir, "personal_data.tex"));
     }
 
-    /// <summary>
-    /// This method combines the language dependend subjectprefix with the JobTitle. Ex: Application as Softwaredeveloper. It returns the combined subject for the LaTEX letter of application.
-    /// The returned string contains escaped characters like hash and ampersand.
-    /// </summary>
-    /// <param name="subjectprefix">comes from myuser.Subjectprefix</param>
-    /// <param name="jobtitle">comes from myapplication.JobTitle</param>
-    /// <returns>subject</returns> 
     public static string GetSubject(string subjectprefix, string jobtitle)
     {
         string subject = subjectprefix + " " + jobtitle;
         return subject;
     }
 
-    /// <summary>
-    /// This method combines the language dependend subjectprefix with the JobTitle. Ex: Application as Softwaredeveloper. It returns the combined subject for the LaTEX letter of application.
-    /// The returned string comes without the escape sequences.
-    /// </summary>
-    /// <param name="subjectprefix">comes from myuser.Subjectprefix</param>
-    /// <param name="jobtitle">comes from myapplication.JobTitle (contains the JobTitle)</param>
-    /// <returns>string subject</returns> 
     public static string GetEmailSubject(string subjectprefix, string jobtitle)
     {
         string subject = subjectprefix + " " + jobtitle;
@@ -80,12 +63,9 @@ public static class Build
     //    }
     //}
 
-    /// <summary>
-    /// This methods uses pdflatex and xelatex for compiling the LaTEX documents. It doesn't returns anything.
-    /// </summary>
     public static void CompileApplication()
     {
-        string mytmpDir = Path.Combine(tmpDir, "JobApplicationManager");
+        string mytmpDir = Path.Combine(TmpDir, "JobApplicationManager");
         Directory.SetCurrentDirectory(mytmpDir);
 
         string[] strCmdText = { "/C pdflatex letter_of_application.tex", "/C xelatex curriculum_vitae.tex", "/C biber curriculum_vitae.bcf", "/C xelatex curriculum_vitae.tex" };
@@ -119,7 +99,7 @@ public static class Build
 
     /// <summary>
     /// This method combines pdfs. So you get a pdf for your certificates of employment, a seperate pdf for other certificates and a final pdf what contains
-    /// letter of application, curriculum vitae and certs. It doesn't returns anything.
+    /// letter of application, curriculum vitae and certs.
     /// </summary>
     /// <param name="firstname">comes from myuser.firstname (contains users first name)</param>
     /// <param name="familyname">comes from myuser.familyname (contains users surname)</param
@@ -127,7 +107,7 @@ public static class Build
     {
         string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         string srcPath = Path.Combine(appDataPath, "JobApplicationManager");
-        string mytmpDir = Path.Combine(tmpDir, "JobApplicationManager");
+        string mytmpDir = Path.Combine(TmpDir, "JobApplicationManager");
         Directory.SetCurrentDirectory(mytmpDir);
 
         //string cos = Properties.Resources.Cos + firstname + "_" + familyname + ".pdf";
@@ -148,11 +128,6 @@ public static class Build
         //MergePdfs(Path.Combine(mytmpDir, finalpdf), finalEntries);
     }
 
-    /// <summary>
-    /// This method is only for merging pdfs. It doesn't returns anything.
-    /// </summary>
-    /// <param name="targetPath">defines the path where the needed pdfs come from.</param>
-    /// <param name="pdfs">is a array of pdf pathes to merge.</param>
     private static void MergePdfs(string targetPath, params string[] pdfs)
     {
         using PdfDocument targetDoc = new PdfDocument();
@@ -165,30 +140,5 @@ public static class Build
             }
         }
         targetDoc.Save(targetPath);
-    }
-
-    /// <summary>
-    /// This method opens the Windows Explorer after merging the pdfs in that case, that you haven't set a company email address.
-    /// </summary>
-    public static void OpenExplorer()
-    {
-        string path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData))?.FullName;
-        if (Environment.OSVersion.Version.Major >= 6)
-        {
-            path = Directory.GetParent(path).ToString();
-        }
-
-        //MessageBox.Show(Properties.Resources.MsgDirFinalPdf, Properties.Resources.MsgHeaderInfo, MessageBoxButton.OK, MessageBoxImage.Information);
-        Process process = new Process();
-        ProcessStartInfo startInfo = new ProcessStartInfo
-        {
-            WindowStyle = ProcessWindowStyle.Hidden,
-            FileName = "cmd.exe"
-        };
-
-        string _path = Path.Combine(path, "AppData", "Local", "Temp", "latex_curriculum_vitae");
-        startInfo.Arguments = string.Format("/C start {0}", _path);
-        process.StartInfo = startInfo;
-        process.Start();
     }
 }

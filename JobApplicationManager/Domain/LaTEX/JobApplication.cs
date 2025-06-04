@@ -28,12 +28,6 @@ namespace JobApplicationManager.Domain.LaTEX
         public string JobTitle { get; set; }
         public string SubjectPrefix { get; set; }
 
-        /// <summary>
-        /// That Constructor creates the Application object by using the arguments.
-        /// </summary>
-        /// <param name="aurl">comes directly from the gui txtUrl.Text</param>
-        /// <param name="aemail">comes directly from the gui txtEmail.Text</param>
-        /// <param name="ajobtitle">comes directly from the gui txtJobtitle.Text</param>
         public JobApplication(string aurl, string aemail, string ajobtitle)
         {
             Url = aurl;

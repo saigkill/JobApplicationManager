@@ -19,6 +19,7 @@
 
 using JobApplicationManager.Application.Models;
 using JobApplicationManager.Components;
+using JobApplicationManager.Domain.Interfaces;
 using JobApplicationManager.Infrastructure.Data;
 using JobApplicationManager.Infrastructure.Data.Repositories;
 using JobApplicationManager.Infrastructure.Helpers;

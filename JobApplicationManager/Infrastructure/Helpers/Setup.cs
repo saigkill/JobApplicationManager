@@ -95,7 +95,6 @@ public static class Setup
         {
             foreach (string pic in picList)
             {
-                // Remove path from the file name.
                 string fName = pic.Substring(srcDir.Length + 1);
 
                 // Use the Path.Combine method to safely append the file name to the path.
@@ -126,27 +125,6 @@ public static class Setup
         _logger.Info("Copied default Bibliography");
     }
 
-    /// <summary>
-    /// Adds a temp folder
-    /// </summary>
-    public static void CheckTmpPath()
-    {
-        string myTmpDir = Path.Combine(Path.GetTempPath(), "JobApplicationManager");
-
-        try
-        {
-            Directory.SetCurrentDirectory(myTmpDir);
-        }
-        catch
-        {
-            Directory.CreateDirectory(myTmpDir);
-        }
-        _logger.Info("Using {0} as TempPath", myTmpDir);
-    }
-
-    /// <summary>
-    /// This method cleans up the temporary directory.
-    /// </summary>
     public static void Cleanup()
     {
         string myTmpDir = Path.Combine(Path.GetTempPath(), "JobApplicationManager");

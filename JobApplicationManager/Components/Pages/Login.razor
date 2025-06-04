@@ -1,16 +1,20 @@
 ﻿@page "/login"
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@inject NavigationManager Navigation
 
 <h3>Login</h3>
 
-@code {
-
-}
-
 <AuthorizeView>
     <Authorized>
-        <p>Welcome, @context.User.Identity.Name!</p>
+        <p>Welcome, @context.User!.Identity!.Name!</p>
     </Authorized>
     <NotAuthorized>
-        <p>Please <a href="MicrosoftIdentity/Account/SignIn">log in</a>.</p>
+        <p>
+            Please <button type="button" @onclick="HandleLogin">log in</button>.
+        </p>
     </NotAuthorized>
 </AuthorizeView>
+
+@code {
+    private void HandleLogin() => Navigation.NavigateTo("authentication/login", forceLoad: true);
+}
