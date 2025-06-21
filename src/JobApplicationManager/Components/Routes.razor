@@ -1,0 +1,12 @@
+﻿<Router AppAssembly="typeof(Program).Assembly">
+    <Found Context="routeData">
+        @if (routeData.PageType == typeof(Components.Pages.Login))
+        {
+            <RouteView RouteData="routeData" DefaultLayout="null" />
+        }
+        else
+        {
+            <RouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)" />
+        }
+    </Found>
+</Router>

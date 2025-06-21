@@ -1,0 +1,71 @@
+﻿@page "/"
+@using Syncfusion.Blazor.Buttons
+@inject NavigationManager Navigation
+@code
+{
+    private LoginModel LoginData = new LoginModel();
+
+    private void NavigateToModel()
+    {
+        Navigation.NavigateTo("/settings");
+    }
+
+    public class LoginModel
+    {
+        public string Email { get; set; } = "himself@saschamanns.de";
+        public string Password { get; set; } = "pass";
+        public bool RememberMe { get; set; }
+    }
+}
+
+<PageTitle>Login</PageTitle>
+
+<section class="d-flex justify-content-center align-items-center min-vh-100 bg-body">
+    <div class="max-w-lg bg-body rounded-lg p-4 p-md-5 w-100" style="max-width: 508px;">
+        <div class="d-flex justify-content-center align-items-center mb-4">
+            <img class="me-2" src="images/jag.png" alt="company logo" />
+            <h5 class="text-center fw-bold mb-0 fs-5 text-body">Job Application Manager</h5>
+        </div>
+        <div class="mb-4 text-center">
+            <h4 class="fw-bold text-body fs-4 mb-2">Sign in</h4>
+            <p class="text-center text-light-emphasis">Enter your credentials to sign in</p>
+        </div>
+        <form action="#" onsubmit="event.preventDefault();">
+            <div class="mb-3">
+                <label class="mb-1 fw-medium text-dark-emphasis small">Email</label>
+                <SfTextBox CssClass="e-bigger" Type="InputType.Email" Placeholder="Email" FloatLabelType="FloatLabelType.Never" aria-label="enter your email address" role="textbox"></SfTextBox>
+            </div>
+            <div class="mb-3">
+                <label class="mb-1 fw-medium text-dark-emphasis small">Password</label>
+                <SfTextBox CssClass="e-bigger" Type="InputType.Password" Placeholder="Password" FloatLabelType="FloatLabelType.Never" aria-label="enter your email password" role="textbox"></SfTextBox>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+                <SfCheckBox TChecked="Boolean" CssClass="e-bigger" Label="Remember me" aria-label="remember me" role="checkbox"></SfCheckBox>
+                <a href="javascript:void(0);" class="text-primary fs-6 fw-medium text-decoration-none" style="padding-right: 0 !important; padding-top: 4px !important;" aria-label="forgot password" role="link">Forgot password?</a>
+            </div>
+            <div class="mt-4 e-bigger">
+                <SfButton CssClass="e-btn e-block e-primary" type="submit" aria-label="sign in" OnClick="NavigateToModel" role="button">Sign in</SfButton>
+            </div>
+        </form>
+        <div class="d-flex flex-wrap align-items-center justify-content-center mt-3 gap-1">
+            <p class="text-body w-sm-auto m-0">Don't have an account yet?</p>
+            <a href="javascript:void(0);" class="text-primary fs-6 fw-medium px-0 fs-6 text-decoration-none" aria-label="sign up" role="link">Sign up</a>
+        </div>
+        <div>
+            <div class="d-flex justify-content-center align-items-center position-relative mt-3">
+                <span class="bg-body px-2 z-1 position-absolute text-light-emphasis small">Or continue with</span>
+                <hr class="w-100 border-light-subtle opacity-100" />
+            </div>
+            <div class="d-flex flex-column mt-3 align-items-center justify-content-center gap-3">
+                <SfButton CssClass="e-btn e-outline e-block d-flex align-items-center justify-content-center px-3 py-2" type="submit" aria-label="sign in with google account" role="button">
+                    <img src="assets/images/common/brand-logos/png/google.png" width="24px" alt="google logo" />
+                    <span class="fs-6 fw-medium" style="padding-left: 8px;">Sign in with Google</span>
+                </SfButton>
+                <SfButton CssClass="e-btn e-outline e-block d-flex align-items-center justify-content-center px-3 py-2" type="submit" aria-label="sign in with microsoft account" role="button">
+                    <img src="images/Microsoft_logo.png" width="24px" alt="microsoft logo" />
+                    <span class="fs-6 fw-medium" style="padding-left: 8px;">Sign in with Microsoft</span>
+                </SfButton>
+            </div>
+        </div>
+    </div>
+</section>

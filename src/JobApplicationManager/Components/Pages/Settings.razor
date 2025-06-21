@@ -1,0 +1,29 @@
+﻿@page "/"
+@using JobApplicationManager.Components.Layout
+@using JobApplicationManager.Infrastructure.Models
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.DataForm
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Inputs
+@layout MainLayout
+
+<h3>@Localizer["UserSettingsTitle"]</h3>
+
+<SfDataForm ID="Usersettings" Width="50%"
+            Model="@UserSettings" OnSubmit="SetUserSettings">
+    <FormValidator>
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+    </FormValidator>
+    <FormItems>
+        <FormAutoGenerateItems></FormAutoGenerateItems>
+    </FormItems>
+    <SfDropDownList TValue="string" Placeholder="@Localizer["ChooseEmailOption"]" TItem="PickerEmailOptionsModel" @bind-Value="@SmtpServerOption" DataSource="@EmailOptions" Width="300px">
+        <DropDownListFieldSettings Value="Option"></DropDownListFieldSettings>
+    </SfDropDownList>
+    <SfUploader ID="UploadFiles" AllowMultiple=false AutoUpload=false>
+        <UploaderEvents ValueChange="@OnChange" OnClear="@OnClearHandler"></UploaderEvents>
+    </SfUploader>
+    <FormButtons>
+        <SfButton typeof="submit">@Localizer["ButtonSubmit"]</SfButton>
+    </FormButtons>
+</SfDataForm>
