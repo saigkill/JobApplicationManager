@@ -17,17 +17,17 @@
 // THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // </copyright>
 
+using JobApplicationManager.Application.Interfaces;
 using JobApplicationManager.Domain.Abstractions;
 using JobApplicationManager.Domain.Events;
-using JobApplicationManager.Infrastructure.Services;
 
 namespace JobApplicationManager.Application.EventHandlers;
 
 public class BuildLatexDocumentsHandler : IDomainEventHandler<ApplicationDataReadyEvent>
 {
-    private readonly LatexBuildService _latexBuildService;
+    private readonly ILatexBuildService _latexBuildService;
 
-    public BuildLatexDocumentsHandler(LatexBuildService latexBuildService)
+    public BuildLatexDocumentsHandler(ILatexBuildService latexBuildService)
     {
         _latexBuildService = latexBuildService;
     }

@@ -18,8 +18,8 @@
 // </copyright>
 
 using JobApplicationManager.Application.Interfaces;
+using JobApplicationManager.Domain.Interfaces;
 using JobApplicationManager.Domain.Models;
-using JobApplicationManager.Infrastructure.Authentication;
 using JobApplicationManager.Infrastructure.Helpers;
 using JobApplicationManager.Resources;
 
@@ -29,7 +29,7 @@ using System.Diagnostics;
 
 namespace JobApplicationManager.Infrastructure.Services;
 
-public class LatexBuildService(ILogger<LatexBuildService> logger, UserEntraIdService userEntraIdService, IStringLocalizer<SfResources> localizer) : ILatexBuildService
+public class LatexBuildService(ILogger<LatexBuildService> logger, IUserEntraIdService userEntraIdService, IStringLocalizer<SfResources> localizer) : ILatexBuildService
 {
     private static readonly string TmpDir = Saigkill.Toolbox.Generators.TemporaryDirectory.GetTemporaryDirectory();
     private readonly string _currentUser = userEntraIdService.GetUserId() ?? "unknown_user";

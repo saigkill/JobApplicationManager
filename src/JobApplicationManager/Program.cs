@@ -87,13 +87,14 @@ public static class Program
     private static void AddServices(WebApplicationBuilder builder)
     {
         builder.Services.AddOptions<AppSettings>().Bind(builder.Configuration);
+        builder.Services.AddScoped<IUserEntraIdService, UserEntraIdService>();
         builder.Services.AddScoped<ICsvService, CsvService>();
         builder.Services.AddScoped<IEmailService, EmailServiceWithAuth>();
         builder.Services.AddScoped<ILatexBuildService, LatexBuildService>();
         builder.Services.AddScoped<IPdfCreationService, PdfCreationService>();
+        builder.Services.AddMemoryCache();
         builder.Services.AddScoped<UserRepository>();
         builder.Services.AddScoped<IUserRepository, UserCacheRepository>();
-        builder.Services.AddScoped<IUserEntraIdService, UserEntraIdService>();
         builder.Services.AddFileStorage(builder.Configuration);
         builder.Services.AddLocalization();
         builder.Services.AddSyncfusionBlazor();

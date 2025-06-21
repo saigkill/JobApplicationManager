@@ -27,15 +27,15 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddFileStorage(this IServiceCollection services, IConfiguration configuration)
     {
-        var section = configuration.GetSection(nameof(AppSettings));
-        var settings = section.Get<AppSettings>();
+        var section = configuration.GetSection(nameof(FileStorage));
+        var settings = section.Get<FileStorageSettings>();
 
         if (section == null)
         {
             throw new ArgumentNullException(nameof(section), "ImageStorage settings cannot be null.");
         }
 
-        var provider = settings.FileStorage.Provider?.ToLower();
+        var provider = settings.Provider?.ToLower();
         if (string.IsNullOrWhiteSpace(provider))
         {
             throw new ArgumentNullException("Provider", "Provider can not be empty.");
@@ -44,25 +44,25 @@ public static class ServiceCollectionExtensions
         switch (provider)
         {
             case "azurestorage":
-                if (settings.FileStorage.AzureStorageSettings == null)
+                if (settings.AzureStorageSettings == null)
                 {
-                    throw new ArgumentNullException(nameof(settings.FileStorage.AzureStorageSettings), "AzureStorageSettings can not be null.");
+                    throw new ArgumentNullException(nameof(settings.AzureStorageSettings), "AzureStorageSettings can not be null.");
                 }
-                services.AddAzureStorage(settings.FileStorage.AzureStorageSettings);
+                services.AddAzureStorage(settings.AzureStorageSettings);
                 break;
             case "filesystem":
-                if (string.IsNullOrWhiteSpace(settings.FileStorage.FileSystemPath))
+                if (string.IsNullOrWhiteSpace(settings.FileSystemPath))
                 {
-                    throw new ArgumentNullException(nameof(settings.FileStorage.FileSystemPath), "FileSystemPath can not be null or empty.");
+                    throw new ArgumentNullException(nameof(settings.FileSystemPath), "FileSystemPath can not be null or empty.");
                 }
-                services.AddFileSystemStorage(settings.FileStorage.FileSystemPath);
+                services.AddFileSystemStorage(settings.FileSystemPath);
                 break;
             case "miniostorage":
-                if (settings.FileStorage.MinioStorageSettings == null)
+                if (settings.MinioStorageSettings == null)
                 {
-                    throw new ArgumentNullException(nameof(settings.FileStorage.MinioStorageSettings), "MinioStorageSettings can not be null.");
+                    throw new ArgumentNullException(nameof(settings.MinioStorageSettings), "MinioStorageSettings can not be null.");
                 }
-                services.AddMinioStorage(settings.FileStorage.MinioStorageSettings);
+                services.AddMinioStorage(settings.MinioStorageSettings);
                 break;
             default:
                 var msg = $"Provider {provider} is not supported.";
